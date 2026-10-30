@@ -18,8 +18,9 @@ Uso: python 03_simulacion_poder.py [n_simulaciones] [colapsado]
 "fe_periodo" usa un efecto partido-tema por periodo ordinario.
 "lineal" y "lineal_pesos" estiman, con los mismos efectos fijos que "fe_periodo", una
 regresión lineal sobre el porcentaje de las palabras del partido en la sesión (sin pesos
-o pesada por las palabras totales). Su beta se reporta como efecto en % (β / porcentaje base)
-y "verdadero" es tau.
+o pesada por las palabras totales). Su beta se reporta como efecto en % (β / porcentaje base).
+Su "verdadero" no es tau: como la triple diferencia resta los temas de control y estos bajan
+cuando la oposición se mueve a los tocados, el efecto que debe recuperar es algo mayor que tau.
 """
 import sys
 import time
@@ -56,6 +57,9 @@ def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False, l
         controles[e] = set(range(N_TEMAS)) - prev - set(tocados[e]) - sig
 
     objetivo = []
+    # Efecto verdadero de la regresión lineal: se acumula por emisión, pesado por
+    # su número de temas tratados, igual que el porcentaje base de estimar_lineal.
+    lin_num, lin_den = 0.0, 0.0
     if tau > 0:
         post = v[v.k > 0]
         for e, ses in post.groupby("emision").sesion:
@@ -66,6 +70,14 @@ def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False, l
             pi = min(q * tau / (1 - q), 1.0)
             # Efecto verdadero sobre la razón tema tocado / temas de control.
             objetivo.append(np.log((1 + tau) / (1 - pi)))
+            # La lineal resta el cambio de los temas de control, igual que el Poisson:
+            # el porcentaje de cada tema tratado sube BASE_t·pi·(1-q)/q (= BASE_t·tau
+            # sin tope) y el de cada tema de control baja BASE_c·pi.
+            c_e = sorted(controles[e])
+            sube = BASE[t_e].mean() * pi * (1 - q) / q
+            baja = BASE[c_e].mean() * pi if c_e else 0.0
+            lin_num += len(t_e) * (sube + baja)
+            lin_den += len(t_e) * BASE[t_e].mean()
             idx = np.flatnonzero(d.sesion.isin(ses) & (d.bloque == "oposicion"))
             cambia = idx[rng.random(len(idx)) < pi]
             tema[cambia] = rng.choice(t_e, len(cambia), p=BASE[t_e] / q)
@@ -101,7 +113,8 @@ def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False, l
     b["pse"] = b.partido + "_" + b.sesion + "_" + b.emision
     b["tse"] = b.tema.astype(str) + "_" + b.sesion + "_" + b.emision
     if lineal:
-        return estimar_lineal(b, d, tau, pesos=(lineal == "pesos"))
+        verdadero_lineal = lin_num / lin_den if lin_den else 0.0
+        return estimar_lineal(b, d, verdadero_lineal, pesos=(lineal == "pesos"))
     # Un grupo de efecto fijo con puros ceros no aporta nada al Poisson (su
     # efecto fijo se va a menos infinito); se quitan antes de estimar.
     while True:
@@ -117,9 +130,11 @@ def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False, l
     return fit.coef()["ddd"], fit.pvalue()["ddd"], verdadero
 
 
-def estimar_lineal(b, d, tau, pesos):
+def estimar_lineal(b, d, verdadero, pesos):
     """Regresión lineal sobre el porcentaje de las palabras del partido en la sesión.
-    Regresa el efecto en % (β entre el porcentaje base) para compararlo con el Poisson."""
+    Regresa el efecto en % (β entre el porcentaje base) y su valor verdadero.
+    El verdadero incluye la baja de los temas de control, como el del Poisson, así
+    que en las dos variantes "verdadero" es lo que el modelo debería recuperar."""
     total = d.groupby(["sesion", "partido"]).palabras.sum().rename("total")
     b = b.merge(total, left_on=["sesion", "partido"], right_index=True, how="left")
     # Si el partido no habló en la sesión, el porcentaje no existe.
@@ -128,7 +143,7 @@ def estimar_lineal(b, d, tau, pesos):
     fit = pf.feols("Y ~ ddd | pte + pse + tse", data=b, vcov={"CRV1": "emision"},
                    weights="total" if pesos else None)
     base = b[(b.opos == 1) & (b.toc == 1) & (b.post == 0)].Y.mean()
-    return fit.coef()["ddd"] / base, fit.pvalue()["ddd"], tau
+    return fit.coef()["ddd"] / base, fit.pvalue()["ddd"], verdadero
 
 
 def main():
