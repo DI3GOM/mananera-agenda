@@ -16,6 +16,10 @@ Uso: python 03_simulacion_poder.py [n_simulaciones] [colapsado]
 "colapsado" suma las dos sesiones previas y las dos posteriores de cada ventana.
 "fe_simple" usa un solo efecto partido-tema para todas las emisiones (α_pt en vez de α_pte).
 "fe_periodo" usa un efecto partido-tema por periodo ordinario.
+"lineal" y "lineal_pesos" estiman, con los mismos efectos fijos que "fe_periodo", una
+regresión lineal sobre el porcentaje de las palabras del partido en la sesión (sin pesos
+o pesada por las palabras totales). Su beta se reporta como efecto en % (β / porcentaje base)
+y "verdadero" es tau.
 """
 import sys
 import time
@@ -39,7 +43,7 @@ def cargar():
     return d, v
 
 
-def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False):
+def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False, lineal=None):
     emisiones = sorted(v.emision.unique())
     tocados = {e: rng.choice(N_TEMAS, TOCADOS, replace=False, p=BASE) for e in emisiones}
     tema = rng.choice(N_TEMAS, len(d), p=BASE)
@@ -96,6 +100,8 @@ def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False):
     b["pte"] = b.partido + "_" + b.tema.astype(str) + sufijo_fe
     b["pse"] = b.partido + "_" + b.sesion + "_" + b.emision
     b["tse"] = b.tema.astype(str) + "_" + b.sesion + "_" + b.emision
+    if lineal:
+        return estimar_lineal(b, d, tau, pesos=(lineal == "pesos"))
     # Un grupo de efecto fijo con puros ceros no aporta nada al Poisson (su
     # efecto fijo se va a menos infinito); se quitan antes de estimar.
     while True:
@@ -111,10 +117,27 @@ def simular(d, v, tau, rng, colapsar=False, fe_simple=False, fe_periodo=False):
     return fit.coef()["ddd"], fit.pvalue()["ddd"], verdadero
 
 
+def estimar_lineal(b, d, tau, pesos):
+    """Regresión lineal sobre el porcentaje de las palabras del partido en la sesión.
+    Regresa el efecto en % (β entre el porcentaje base) para compararlo con el Poisson."""
+    total = d.groupby(["sesion", "partido"]).palabras.sum().rename("total")
+    b = b.merge(total, left_on=["sesion", "partido"], right_index=True, how="left")
+    # Si el partido no habló en la sesión, el porcentaje no existe.
+    b = b[b.total > 0].copy()
+    b["Y"] = 100 * b.W / b.total
+    fit = pf.feols("Y ~ ddd | pte + pse + tse", data=b, vcov={"CRV1": "emision"},
+                   weights="total" if pesos else None)
+    base = b[(b.opos == 1) & (b.toc == 1) & (b.post == 0)].Y.mean()
+    return fit.coef()["ddd"] / base, fit.pvalue()["ddd"], tau
+
+
 def main():
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     variante = sys.argv[2] if len(sys.argv) > 2 else ""
     colapsar, fe_simple, fe_periodo = (variante == x for x in ["colapsado", "fe_simple", "fe_periodo"])
+    # Las variantes lineales usan los mismos efectos fijos que el Poisson recomendado (α por periodo).
+    lineal = {"lineal": "sin_pesos", "lineal_pesos": "pesos"}.get(variante)
+    fe_periodo = fe_periodo or lineal is not None
     taus = [0.0, 0.5, 1.0] if variante else [0.0, 0.25, 0.5, 1.0]
     d, v = cargar()
     print(f"{len(d)} discursos libres largos; {v.emision.nunique()} emisiones", flush=True)
@@ -124,7 +147,7 @@ def main():
         t0 = time.time()
         for _ in range(n):
             try:
-                b, p, ver = simular(d, v, tau, rng, colapsar, fe_simple, fe_periodo)
+                b, p, ver = simular(d, v, tau, rng, colapsar, fe_simple, fe_periodo, lineal)
             except Exception:  # una base sin variación hace fallar el ajuste
                 b, p, ver = np.nan, np.nan, np.nan
             res.append({"tau": tau, "beta": b, "p": p, "verdadero": ver})
