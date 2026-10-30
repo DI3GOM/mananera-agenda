@@ -1,0 +1,30 @@
+# Entorno de Python
+.venv/
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+
+# Documentos del equipo (se comparten aparte)
+notas/
+entregas/
+
+# Datos que generan los scripts (se recrean con analisis/01 y 02)
+datos/turnos_secciones.csv
+datos/discursos_libres.csv
+datos/ventanas.csv
+
+# Fuentes intermedias ya resumidas en CSV, o que el análisis no usa
+datos/fichas/
+datos/comisiones/
+datos/estenograficas_muestra/
+datos/discursos.csv
+datos/calendario_sesiones_v1_incompleto.csv
+
+# Archivos sueltos sin uso
+hdv.json
+z.json
+
+# Material de otra materia
+atlantic_computer/
