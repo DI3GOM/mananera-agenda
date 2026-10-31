@@ -12,7 +12,7 @@ mira ningún resultado real. En cada simulación:
   4. Se estima el Poisson con los tres efectos fijos y errores por emisión.
 El poder es la proporción de simulaciones con p < 0.05.
 
-Uso: python 03_simulacion_poder.py [n_simulaciones] [colapsado]
+Uso: python 03_simulacion_poder.py [n_simulaciones] [variante]
 "colapsado" suma las dos sesiones previas y las dos posteriores de cada ventana.
 "fe_simple" usa un solo efecto partido-tema para todas las emisiones (α_pt en vez de α_pte).
 "fe_periodo" usa un efecto partido-tema por periodo ordinario.
@@ -24,11 +24,22 @@ cuando la oposición se mueve a los tocados, el efecto que debe recuperar es alg
 """
 import sys
 import time
+import warnings
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import pyfixest as pf
+
+# pyfixest avisa en cada ajuste cuántos efectos fijos de un solo dato quitó; no es un error.
+warnings.filterwarnings("ignore", message=".*singleton fixed effect")
+# Con temas al azar, algunas combinaciones partido-tema quedan en puros ceros y el Poisson
+# las quita ("separation"). Es esperado y no cambia el resultado.
+warnings.filterwarnings("ignore", message=".*removed because of separation")
+# Las versiones nuevas de pyfixest avisan que el demeaner "scipy" va a desaparecer. Lo dejamos
+# para que los resultados sean iguales a las corridas anteriores.
+warnings.filterwarnings("ignore", category=DeprecationWarning, module="pyfixest")
+warnings.filterwarnings("ignore", message=".*LSMR demeaner backend.*deprecated")
 
 RAIZ = Path(__file__).resolve().parents[1]
 N_TEMAS, TOCADOS = 20, 3
@@ -153,7 +164,8 @@ def main():
     # Las variantes lineales usan los mismos efectos fijos que el Poisson recomendado (α por periodo).
     lineal = {"lineal": "sin_pesos", "lineal_pesos": "pesos"}.get(variante)
     fe_periodo = fe_periodo or lineal is not None
-    taus = [0.0, 0.5, 1.0] if variante else [0.0, 0.25, 0.5, 1.0]
+    # Todas las variantes usan los mismos efectos (0, 25%, 50% y 100%) para poder compararlas.
+    taus = [0.0, 0.25, 0.5, 1.0]
     d, v = cargar()
     print(f"{len(d)} discursos libres largos; {v.emision.nunique()} emisiones", flush=True)
     rng = np.random.default_rng(20261027)

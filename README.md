@@ -43,15 +43,17 @@ Los scripts van en orden. Cada uno lee lo que dejó el anterior en `datos/`.
 python analisis/01_turnos_por_seccion.py
 python analisis/02_ventanas_y_volumen.py
 python analisis/03_simulacion_poder.py 100
+python analisis/04_resumen_simulaciones.py
 ```
 
 | Script | Qué hace | Tarda |
 |---|---|---|
 | `01_turnos_por_seccion.py` | Divide cada versión estenográfica de la LXV en turnos de palabra, con el partido del orador y la sección de la sesión (iniciativas, dictámenes, etc.). Crea `datos/turnos_secciones.csv` | ~5 s |
 | `02_ventanas_y_volumen.py` | Arma las ventanas de cada emisión (2 sesiones antes y 2 después) y mide cuánto texto hay en las secciones libres. Crea `datos/ventanas.csv` y `datos/discursos_libres.csv` | ~5 s |
-| `03_simulacion_poder.py` | Simulación de poder con temas asignados al azar: si hubiera un efecto, ¿lo detectaríamos? Acepta una variante: `colapsado`, `fe_simple` o `fe_periodo` | ~2 min por cada 100 simulaciones |
+| `03_simulacion_poder.py` | Simulación de poder con temas asignados al azar: si hubiera un efecto, ¿lo detectaríamos? Acepta una variante: `colapsado`, `fe_simple`, `fe_periodo`, `lineal` o `lineal_pesos` | ~2 min por cada 100 simulaciones |
+| `04_resumen_simulaciones.py` | Junta todos los resultados de simulación en una tabla: falsos positivos, poder y sesgo de cada modelo, con su error estándar de simulación. Crea `analisis/resumen_simulaciones.md` | ~1 s |
 
-Los resultados de las simulaciones que ya corrimos están en `analisis/resultados_simulacion_poder*.csv`.
+Los resultados de las simulaciones que ya corrimos están en `analisis/resultados_simulacion_poder*.csv`, y su resumen en `analisis/resumen_simulaciones.md`.
 
 ## Reglas del equipo
 
