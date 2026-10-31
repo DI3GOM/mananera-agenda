@@ -38,8 +38,7 @@ warnings.filterwarnings("ignore", message=".*singleton fixed effect")
 warnings.filterwarnings("ignore", message=".*removed because of separation")
 # Las versiones nuevas de pyfixest avisan que el demeaner "scipy" va a desaparecer. Lo dejamos
 # para que los resultados sean iguales a las corridas anteriores.
-warnings.filterwarnings("ignore", category=DeprecationWarning, module="pyfixest")
-warnings.filterwarnings("ignore", message=".*LSMR demeaner backend.*deprecated")
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 RAIZ = Path(__file__).resolve().parents[1]
 N_TEMAS, TOCADOS = 20, 3
@@ -172,12 +171,14 @@ def main():
     res = []
     for tau in taus:
         t0 = time.time()
-        for _ in range(n):
+        for i in range(n):
             try:
                 b, p, ver = simular(d, v, tau, rng, colapsar, fe_simple, fe_periodo, lineal)
             except Exception:  # una base sin variación hace fallar el ajuste
                 b, p, ver = np.nan, np.nan, np.nan
             res.append({"tau": tau, "beta": b, "p": p, "verdadero": ver})
+            if (i + 1) % 50 == 0:
+                print(f"  tau={tau:.2f}: {i + 1} de {n} simulaciones ({time.time() - t0:.0f}s)", flush=True)
         r = pd.DataFrame(res)
         r = r[r.tau == tau]
         print(f"tau={tau:.2f}: rechaza H0 en {(r.p < 0.05).mean():.0%} "
