@@ -45,6 +45,9 @@ python analisis/02_ventanas_y_volumen.py
 python analisis/03_simulacion_poder.py 100
 python analisis/04_resumen_simulaciones.py
 python analisis/05_simulacion_rediseno.py 100 7
+python analisis/06_textos_a_clasificar.py
+python analisis/07_clasificar.py seccion --estimar
+python analisis/08_validacion.py muestra
 ```
 
 | Script | Qué hace | Tarda |
@@ -54,6 +57,9 @@ python analisis/05_simulacion_rediseno.py 100 7
 | `03_simulacion_poder.py` | Simulación de poder con temas asignados al azar: si hubiera un efecto, ¿lo detectaríamos? Acepta una variante: `colapsado`, `fe_simple`, `fe_periodo`, `lineal` o `lineal_pesos` | ~2 min por cada 100 simulaciones |
 | `04_resumen_simulaciones.py` | Junta todos los resultados de simulación en una tabla: falsos positivos, poder y sesgo de cada modelo, con su error estándar de simulación. Crea `analisis/resumen_simulaciones.md` | ~1 s |
 | `05_simulacion_rediseno.py` | Simulación del diseño actual (tras el feedback del 30 de octubre): pocos temas más un "resto", un efecto para la oposición y otro para Morena, lineal pesada como principal y Poisson como robustez, sin la sesión del mismo día (64 emisiones). El segundo argumento es el número de temas | ~10 min por cada 100 simulaciones |
+| `06_textos_a_clasificar.py` | Saca de las mañaneras el texto de la sección de cada emisión (turno por turno) y junta las intervenciones de los diputados en secciones libres. Crea `datos/clasificar/seccion_turnos.csv` e `intervenciones.csv` | ~10 s |
+| `07_clasificar.py` | Clasifica por tema con Claude Opus 5.5 siguiendo `analisis/libro_de_codigos.md`: `seccion` (divide cada sección en ítems) o `diputados`. **Cuesta dinero y necesita credenciales de la API**: primero `--estimar`, luego `--piloto` (solo textos fuera de la muestra). Guarda cada respuesta y retoma donde se quedó | depende de la API |
+| `08_validacion.py` | `muestra` arma las hojas para codificar a mano (sin partido, fecha ni respuesta del modelo); `alfa` calcula el alfa de Krippendorff y el acierto del modelo por bloque | ~1 s |
 
 Los resultados de las simulaciones que ya corrimos están en `analisis/resultados_simulacion_poder*.csv` (diseño anterior) y `analisis/resultados_simulacion_rediseno_*temas.csv` (diseño actual), y el resumen del diseño anterior en `analisis/resumen_simulaciones.md`.
 
