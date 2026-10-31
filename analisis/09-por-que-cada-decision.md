@@ -114,19 +114,19 @@ Con la simulación pudimos comparar los dos modelos con las mismas reglas. La ve
 
 | Modelo | ¿Encuentra efectos que no existen? (ideal: 5%) | ¿Detecta un efecto de +50%? | ¿Cuánto se equivoca en el tamaño? |
 |---|---|---|---|
-| Poisson, α por periodo (60 simulaciones) | 13% | 78% | Exagera ~45% |
+| Poisson, α por periodo (200 simulaciones) | 8% | 78% | Exagera ~44% |
 | Lineal con pesos (500 simulaciones) | 7% | 78% | Se queda ~5% abajo |
 
 **Por qué ahora sí funciona la lineal.** En una regresión lineal, los niveles normales se quitan exactamente, restando promedios, así que no importa que haya pocos datos por grupo. En el Poisson eso no se puede, y de ahí viene el sesgo. Los problemas del paso 1 resultaron ser menores en la práctica: el de "todo suma 100" ya está dentro de lo que la triple diferencia compara, y la simulación lo toma en cuenta al calcular el efecto verdadero.
 
-**Pendiente.** Falta la corrida del Poisson con 500 simulaciones (la que está corriendo ahora) para compararlos en igualdad de condiciones. Si confirma el sesgo, la regresión lineal con pesos debería ser el modelo principal y el Poisson quedaría como prueba de robustez. Eso cambia la ecuación de la metodología y la explicación de β.
+**Decisión (30 de octubre).** Con 200 simulaciones, el Poisson rechaza de más casi igual que la lineal (8% contra 7%) y detecta lo mismo (78% con un efecto de +50%), pero exagera el tamaño del efecto en ~44%. Por eso la regresión lineal con pesos es el modelo principal y el Poisson queda como prueba de robustez. La metodología v2.0 (`metodologia/metodologia_v2.Rmd`) ya está escrita así.
 
 ## 8. Cómo decidimos si el efecto es real y no suerte
 
 | Decisión | Por qué | Texto |
 |---|---|---|
 | **Errores agrupados por emisión y por sesión a la vez.** | Las observaciones de una misma emisión se parecen entre sí, y una misma sesión aparece en dos o tres ventanas. Si las tratáramos como independientes, creeríamos tener más información de la que hay y encontraríamos efectos falsos. | **Cameron, Gelbach y Miller (2011)** explican cómo corregir los errores cuando los datos se agrupan en dos dimensiones a la vez. |
-| **La prueba principal es de permutación.** | Aun con esa corrección, la simulación del Poisson encontró "efectos" inexistentes en 13% de los casos en vez de 5%. La permutación no depende de fórmulas: 1,000 veces reasignamos los temas de cada emisión a otra emisión, volvemos a estimar y vemos si el resultado real es más extremo que casi todos los falsos. | **MacKinnon y Webb (2020)** recomiendan hacer la permutación con el estadístico t y no con el coeficiente, porque funciona mejor cuando los grupos son muy distintos entre sí. |
+| **La prueba principal es de permutación.** | Con esa corrección, la simulación encontró "efectos" inexistentes en 7% (lineal) y 8% (Poisson) de los casos, un poco más que el 5% ideal. La permutación sirve para confirmarlo sin depender de fórmulas, y no depende de fórmulas: 1,000 veces reasignamos los temas de cada emisión a otra emisión, volvemos a estimar y vemos si el resultado real es más extremo que casi todos los falsos. | **MacKinnon y Webb (2020)** recomiendan hacer la permutación con el estadístico t y no con el coeficiente, porque funciona mejor cuando los grupos son muy distintos entre sí. |
 | **Decimos de antemano qué tamaño de efecto podemos detectar.** | Con la lineal pesada detectamos un efecto de +50% en 78% de los casos, pero uno de +25% solo en 30%. Si β sale cercano a cero, no podremos decir "no hay efecto", solo "no hay un efecto grande". | |
 
 ## 9. Cómo leeremos el resultado
@@ -166,8 +166,8 @@ Si el modelo principal cambia a la regresión lineal, Santos Silva y Tenreyro y 
 
 ## 12. Lo que falta decidir
 
-- [ ] Modelo principal: Poisson o lineal con pesos, cuando termine la simulación del Poisson con 500 repeticiones.
+- [x] Modelo principal: lineal con pesos (decidido el 30 de octubre con 200 simulaciones del Poisson).
 - [ ] Cambiar `mismo_dia_es_post` en `02_ventanas_y_volumen.py` para que dé 64 emisiones, como dice el texto.
 - [ ] Confirmar la definición de tema de control (con o sin "ni la siguiente").
-- [ ] Llenar el nombre y la versión del modelo de lenguaje.
+- [ ] Elegir el modelo de lenguaje: comparar uno comercial por API y uno abierto contra la muestra codificada a mano.
 - [ ] Conseguir los cinco textos que faltan en `papers/` para revisar que los citamos bien.
