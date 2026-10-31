@@ -44,6 +44,7 @@ python analisis/01_turnos_por_seccion.py
 python analisis/02_ventanas_y_volumen.py
 python analisis/03_simulacion_poder.py 100
 python analisis/04_resumen_simulaciones.py
+python analisis/05_simulacion_rediseno.py 100 7
 ```
 
 | Script | Qué hace | Tarda |
@@ -52,8 +53,9 @@ python analisis/04_resumen_simulaciones.py
 | `02_ventanas_y_volumen.py` | Arma las ventanas de cada emisión (2 sesiones antes y 2 después) y mide cuánto texto hay en las secciones libres. Crea `datos/ventanas.csv` y `datos/discursos_libres.csv` | ~5 s |
 | `03_simulacion_poder.py` | Simulación de poder con temas asignados al azar: si hubiera un efecto, ¿lo detectaríamos? Acepta una variante: `colapsado`, `fe_simple`, `fe_periodo`, `lineal` o `lineal_pesos` | ~2 min por cada 100 simulaciones |
 | `04_resumen_simulaciones.py` | Junta todos los resultados de simulación en una tabla: falsos positivos, poder y sesgo de cada modelo, con su error estándar de simulación. Crea `analisis/resumen_simulaciones.md` | ~1 s |
+| `05_simulacion_rediseno.py` | Simulación del diseño actual (tras el feedback del 30 de octubre): pocos temas más un "resto", un efecto para la oposición y otro para Morena, lineal pesada como principal y Poisson como robustez, sin la sesión del mismo día (64 emisiones). El segundo argumento es el número de temas | ~10 min por cada 100 simulaciones |
 
-Los resultados de las simulaciones que ya corrimos están en `analisis/resultados_simulacion_poder*.csv`, y su resumen en `analisis/resumen_simulaciones.md`.
+Los resultados de las simulaciones que ya corrimos están en `analisis/resultados_simulacion_poder*.csv` (diseño anterior) y `analisis/resultados_simulacion_rediseno_*temas.csv` (diseño actual), y el resumen del diseño anterior en `analisis/resumen_simulaciones.md`.
 
 ## Reglas del equipo
 
