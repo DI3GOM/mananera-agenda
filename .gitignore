@@ -28,3 +28,6 @@ z.json
 
 # Material de otra materia
 atlantic_computer/
+
+# Copias de JSTOR: sus términos no permiten volver a publicarlas
+papers/*-JSTOR.pdf
