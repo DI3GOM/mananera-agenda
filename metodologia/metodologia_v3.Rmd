@@ -27,7 +27,7 @@ header-includes:
 Cómo compilar (desde la carpeta metodologia/):
   Rscript -e 'rmarkdown::render("metodologia_v3.Rmd")'
 Requiere R con el paquete rmarkdown y una instalación de LaTeX con xelatex (por ejemplo, tinytex).
-Solo se citan los cinco textos de referencias.bib. Cada cita dice qué idea tomamos del texto y por qué.
+Solo se citan tres textos de referencias.bib (Petrocik, Lovett et al. y Olden y Møen). Cada cita dice qué idea tomamos del texto y por qué.
 Las cifras de la simulación son preliminares y usan temas inventados. No son resultados del proyecto.
 -->
 
@@ -37,7 +37,7 @@ Las cifras de la simulación son preliminares y usan temas inventados. No son re
 
 **Datos y muestra.** Las transcripciones de la mañanera vienen del repositorio NOSTRODATA, y las de la Cámara, de sus versiones estenográficas, que dicen quién habla y en qué parte de la sesión. Usamos las sesiones ordinarias del Pleno de la LXV Legislatura (septiembre de 2021 a abril de 2024). Para cada emisión tomamos las dos sesiones anteriores y las dos posteriores en el mismo periodo ordinario. La sesión de la tarde del mismo miércoles no cuenta como posterior, porque su orden del día se cerró antes de la mañanera (Reglamento, arts. 60 y 65). Quedan 64 emisiones.
 
-**Medición de temas (componente predictivo).** Un modelo de lenguaje dividirá cada sección en ítems, uno por desmentido, y asignará cada ítem y cada intervención de los diputados a un tema del Comparative Agendas Project o a “sin tema de política”. Compararemos un modelo comercial por API y uno abierto, usaremos el que más coincida con nuestra codificación a mano y guardaremos su versión, las instrucciones y cada respuesta. @gilardi2023 muestran que ChatGPT clasificó tuits y noticias mejor que trabajadores en línea en la mayoría de sus tareas, pero al asignar tuits a seis temas acertó poco más de 60%, menos que ellos. @tornberg2025 muestra que GPT-4 identificó el partido de políticos de 11 países a partir de un solo tuit, y en Estados Unidos, el único caso que comparó con personas, acertó más que codificadores expertos. De los dos tomamos que un modelo puede hacer este trabajo, pero que su acierto depende de la tarea. Por eso, dos de nosotros codificaremos a mano, sin ver la fecha, una muestra al azar de ítems e intervenciones, y mediremos nuestro acuerdo (alfa de Krippendorff, meta de 0.80) y los aciertos del modelo por tema y por bloque.
+**Medición de temas (componente predictivo).** Un modelo de lenguaje dividirá cada sección en ítems, uno por desmentido, y asignará cada ítem y cada intervención de los diputados a un tema del Comparative Agendas Project o a “sin tema de política”. Compararemos un modelo comercial por API y uno abierto, usaremos el que más coincida con nuestra codificación a mano y guardaremos su versión, las instrucciones y cada respuesta. Como un modelo puede acertar mucho en una tarea y poco en otra, dos de nosotros codificaremos a mano, sin ver la fecha, una muestra al azar de ítems e intervenciones, y mediremos nuestro acuerdo (alfa de Krippendorff, meta de 0.80) y los aciertos del modelo por tema y por bloque.
 
 **Pocos temas.** Analizaremos entre cinco y ocho temas y todo lo demás irá a un “resto”. Un tema entra si la sección lo tocó en al menos ocho emisiones, si lo distinguimos bien de los demás (si dos se confunden, los juntamos) y si los diputados hablan de él. Los elegiremos antes de ver resultados.
 
@@ -55,7 +55,7 @@ $\alpha_{pte}$ es lo que el partido suele dedicarle al tema en esa ventana, el �
 
 **Pruebas de hipótesis.** Para cada bloque preguntamos si su efecto es distinto de cero, y lo mismo para la diferencia entre los dos ($H_0\!: \beta = 0$). Diremos que hay efecto si la probabilidad de ver un resultado así por pura casualidad es menor a 5%. Al calcular esa probabilidad tomamos en cuenta que los datos de una misma emisión se parecen entre sí y que una misma sesión aparece en varias ventanas. Como tenemos 64 emisiones, un efecto pequeño puede pasar desapercibido, así que un resultado cercano a cero no probará que no hay efecto, solo que no hay uno grande.
 
-**Qué aprenderemos.** Si $\beta_O$ y $\beta_M$ son positivos y parecidos, la mañanera mueve la agenda de toda la Cámara. Si $\beta_M$ es mayor, responde más el partido del Presidente, como sugiere nuestra lectura de @lovett2015. Si $\beta_O$ es cercano a cero, la oposición se queda en sus temas, como en la extensión de @petrocik1996. Si los dos son cercanos a cero, la sección no mueve la agenda de nadie, al menos no en un tamaño detectable.
+**Qué aprenderemos.** Si $\beta_O$ y $\beta_M$ son positivos y parecidos, la mañanera mueve la agenda de toda la Cámara, como pasa en @lovett2015 cuando el presidente es popular: en los meses siguientes a su informe mueve incluso a una cámara controlada por el partido rival. Si $\beta_M$ es mayor, responde más el partido del Presidente. @lovett2015 encuentran algo parecido solo en parte, porque comparan Congresos controlados por un partido u otro y no a los partidos dentro de una misma cámara. Si $\beta_O$ es cercano a cero, la oposición se queda en sus temas, como en la extensión de @petrocik1996. Si los dos son cercanos a cero, la sección no mueve la agenda de nadie, al menos no en un tamaño detectable.
 
 **Heterogeneidad.** Exploraremos, una a la vez, diferencias por partido de oposición, por blanco del ítem (un medio o un actor de oposición), antes y después de septiembre de 2023 y en la primera frente a la segunda sesión.
 
@@ -83,7 +83,7 @@ $\alpha_{pte}$ es lo que el partido suele dedicarle al tema en esa ventana, el �
 | La sesión del mismo miércoles no cuenta como posterior | Su orden del día se cerró antes de la mañanera (Reglamento, arts. 60 y 65). | Contarla. |
 | El “resto” es control solo si no se tocó | Si la emisión tocó uno de sus temas, ya no sirve como comparación. | Usarlo siempre como control. |
 | Control sin la siguiente emisión, como robustez | Excluir los temas de la siguiente emisión puede inflar el efecto. | Una sola definición. |
-| Validación a mano antes de clasificar | Un modelo acierta mucho en unas tareas y menos en otras, como se ve al comparar @gilardi2023 con @tornberg2025. | Confiar en el modelo sin revisarlo, o codificar todo a mano. |
+| Validación a mano antes de clasificar | Un modelo puede acertar mucho en una tarea y poco en otra, así que hay que medirlo en la nuestra. | Confiar en el modelo sin revisarlo, o codificar todo a mano. |
 | Comparar dos modelos de lenguaje | Usamos el que más coincida con nuestra codificación a mano. | Escoger uno sin compararlo. |
 | Errores por emisión y por sesión | Una misma sesión aparece en dos o tres ventanas. | Agrupar solo por emisión. |
 | Heterogeneidad exploratoria, una dimensión a la vez | Con 64 emisiones hay pocos datos por grupo. | Muchas interacciones a la vez. |
