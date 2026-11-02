@@ -64,7 +64,7 @@
   </macro>
   <macro name="author-short">
     <names variable="author">
-      <name form="short" and="text" delimiter=", " initialize-with=". " sort-separator=", "/>
+      <name form="short" and="text" delimiter=", " delimiter-precedes-last="never" initialize-with=". " sort-separator=", "/>
       <substitute>
         <names variable="editor"/>
         <names variable="translator"/>
