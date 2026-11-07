@@ -201,14 +201,22 @@ def exportar(tarea):
         print(f"temas_intervenciones.csv: {d.tema.notna().sum()} de {len(d)} con tema")
         return
     s = pd.read_csv(CARPETA / "seccion_turnos.csv")
-    items = []
+    items, fuera = [], []
     for e, r in ok.items():
         g = s[s.emision == e].set_index("turno").palabras
         for k, it in enumerate(r["respuesta"]["items"], 1):
+            # Si el corte de la sección (06) se afinó después de clasificar, los ítems que
+            # caen después del nuevo final se descartan y los que lo cruzan se recortan.
+            if it["turno_inicio"] > g.index.max():
+                fuera.append(f"{e} ítem {k} (turnos {it['turno_inicio']}-{it['turno_fin']})")
+                continue
+            it = {**it, "turno_fin": min(it["turno_fin"], int(g.index.max()))}
             palabras = int(g.loc[it["turno_inicio"]:it["turno_fin"]].sum())
             items.append({"emision": e, "item": k, **it, "palabras": palabras})
     pd.DataFrame(items).to_csv(CARPETA / "temas_seccion.csv", index=False)
     print(f"temas_seccion.csv: {len(items)} ítems de {len(ok)} emisiones")
+    if fuera:
+        print(f"  {len(fuera)} ítems fuera del corte actual de la sección: {'; '.join(fuera)}")
 
 
 def hacer_lotes(tarea, pendientes, tam, repetir, solo=None):

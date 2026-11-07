@@ -28,8 +28,8 @@ PARTIDOS = {"PAN", "PRI", "PRD", "MC", "MORENA"}
 MIN_PALABRAS = 10
 
 APERTURA = re.compile(r"(?:(?:esta es|con) la secci[oó]n|este es el|vamos (?:a comenzar )?con el).{0,15}qui[eé]n es qui[eé]n", re.I)
-CIERRE = re.compile(r"(?:es cuanto|es todo),? (?:se[ñn]or )?presidente|hasta aqu[ií] la secci[oó]n"
-                    r"|terminamos (?:con )?la secci[oó]n", re.I)
+CIERRE = re.compile(r"(?:es cuanto|es todo),? (?:se[ñn]or )?presidente"
+                    r"|(?:hasta aqu[ií]|aqu[ií] termina|terminamos)(?: con)? (?:nuestra|esta|la) secci[oó]n", re.I)
 
 
 VIDEO = re.compile(r"VOZ|VIDEO|INFODEMIA")
