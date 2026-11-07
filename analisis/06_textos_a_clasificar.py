@@ -28,7 +28,11 @@ PARTIDOS = {"PAN", "PRI", "PRD", "MC", "MORENA"}
 MIN_PALABRAS = 10
 
 APERTURA = re.compile(r"(?:(?:esta es|con) la secci[oó]n|este es el|vamos (?:a comenzar )?con el).{0,15}qui[eé]n es qui[eé]n", re.I)
-CIERRE = re.compile(r"(?:es cuanto|es todo),? (?:se[ñn]or )?presidente|hasta aqu[ií] la secci[oó]n", re.I)
+CIERRE = re.compile(r"(?:es cuanto|es todo),? (?:se[ñn]or )?presidente|hasta aqu[ií] la secci[oó]n"
+                    r"|terminamos (?:con )?la secci[oó]n", re.I)
+
+
+VIDEO = re.compile(r"VOZ|VIDEO|INFODEMIA")
 
 
 def normalizar(s):
@@ -45,10 +49,20 @@ def seccion(d):
         return d.iloc[0:0]
     ini = candidatos[0]
     cierra = d.index[(d.index > ini) & d.texto.str.contains(CIERRE)]
-    if len(cierra):
-        fin = cierra[0]
-    elif vil.any():
+    if vil.any():
         fin = d.index[vil][-1]
+        if len(cierra):
+            # El cierre cuenta si entre el último turno de la presentadora y el cierre solo
+            # hay voces de video (Infodemia), además de preguntas y del Presidente, que se
+            # quitan abajo. Si habla otro funcionario, la sección ya había acabado: así no se
+            # cuela otro informe que termine con "es todo, presidente".
+            ult = d.index[vil & (d.index <= cierra[0])]
+            ult = ult[-1] if len(ult) else ini
+            entre = d.participante.loc[ult + 1:cierra[0]].map(normalizar)
+            entre = entre[~entre.str.startswith(("PREGUNTA", "PRESIDENTE"))]
+            fin = cierra[0] if entre.str.contains(VIDEO).all() else ult
+    elif len(cierra):
+        fin = cierra[0]
     else:
         # Sin presentadora ni cierre: hasta antes de la siguiente pregunta de la prensa.
         preg = d.index[(d.index > ini) & d.participante.map(normalizar).str.startswith("PREGUNTA")]
