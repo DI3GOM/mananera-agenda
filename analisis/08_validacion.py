@@ -10,7 +10,13 @@
             por tema), los temas que más confundimos y qué tanto acierta el modelo en
             los casos en que coincidimos, por separado para la oposición y para Morena.
 
+  asignar   Reparte la muestra entre tres codificadores (A Tania, B Paola, C Diego):
+            cada unidad la codifican dos, así que cada quien hace unas dos terceras
+            partes. Los grupos se arman por estratos (oposición, Morena, sección).
+            Escribe datos/validacion/asignacion.csv y la hoja C.
+
 Uso: python 08_validacion.py muestra [n_intervenciones] [n_items]
+     python 08_validacion.py asignar
      python 08_validacion.py alfa
 """
 import sys
@@ -63,6 +69,28 @@ def muestra(n_interv=150, n_items=80):
           "La columna 'blanco' solo se llena en los ítems de la sección.")
 
 
+PARES = ["AB", "BC", "AC"]
+
+
+def asignar():
+    clave = pd.read_csv(VAL / "clave.csv")
+    rng = np.random.default_rng(SEMILLA)
+    clave["orden"] = rng.permutation(len(clave))
+    clave = clave.sort_values(["bloque", "orden"])
+    # Dentro de cada estrato se reparte en rueda, así los tres grupos llevan la misma mezcla.
+    clave["grupo"] = clave.groupby("bloque").cumcount() % 3 + 1
+    clave["codificadores"] = clave.grupo.map(lambda g: PARES[g - 1])
+    clave = clave.sort_values("unidad")
+    clave[["unidad", "grupo", "codificadores"]].to_csv(VAL / "asignacion.csv", index=False)
+    c = VAL / "hoja_codificador_C.csv"
+    if not c.exists():
+        pd.read_csv(VAL / "hoja_codificador_A.csv").assign(tema="", blanco="", notas="").to_csv(c, index=False)
+    for h in "ABC":
+        n = clave.codificadores.str.contains(h).sum()
+        print(f"Hoja {h}: {n} unidades")
+    print(pd.crosstab(clave.bloque, clave.codificadores))
+
+
 def alfa_nominal(a, b):
     """Alfa de Krippendorff para dos codificadores, datos nominales, sin faltantes."""
     valores = np.concatenate([a, b])
@@ -77,9 +105,17 @@ def alfa_nominal(a, b):
 
 def alfa():
     clave = pd.read_csv(VAL / "clave.csv")
-    h = {c: pd.read_csv(VAL / f"hoja_codificador_{c}.csv", dtype={"tema": "Int64"}) for c in "AB"}
-    x = clave.merge(h["A"][["unidad", "tema", "blanco"]], on="unidad") \
-             .merge(h["B"][["unidad", "tema", "blanco"]], on="unidad", suffixes=("_a", "_b"))
+    x = clave.copy()
+    hojas = [c for c in "ABC" if (VAL / f"hoja_codificador_{c}.csv").exists()]
+    for c in hojas:
+        h = pd.read_csv(VAL / f"hoja_codificador_{c}.csv", dtype={"tema": "Int64"})
+        x = x.merge(h[["unidad", "tema", "blanco"]].rename(columns={"tema": f"t_{c}", "blanco": f"b_{c}"}), on="unidad")
+    # Cada unidad la codifican dos personas (asignacion.csv): se toman los dos códigos que tenga.
+    def dos(fila, campo):
+        v = [fila[f"{campo}_{c}"] for c in hojas if pd.notna(fila[f"{campo}_{c}"])]
+        return (v + [pd.NA, pd.NA])[:2]
+    x["tema_a"], x["tema_b"] = zip(*[dos(r, "t") for _, r in x.iterrows()])
+    x["blanco_a"], x["blanco_b"] = zip(*[dos(r, "b") for _, r in x.iterrows()])
     faltan = x.tema_a.isna() | x.tema_b.isna()
     if faltan.any():
         print(f"Aviso: {faltan.sum()} unidades sin tema en alguna hoja; se dejan fuera.")
@@ -95,7 +131,7 @@ def alfa():
 
     print("\nAlfa por tema (ese tema contra todos los demás):")
     for t in sorted(set(a) | set(b)):
-        print(f"  {t:>2}: {alfa_nominal(a == t, b == t):.2f}  (A lo usó {np.sum(a == t)}, B {np.sum(b == t)})")
+        print(f"  {t:>2}: {alfa_nominal(a == t, b == t):.2f}  (usado {np.sum(a == t) + np.sum(b == t)} veces)")
     pares = x[x.tema_a != x.tema_b].apply(lambda r: tuple(sorted((r.tema_a, r.tema_b))), axis=1)
     if len(pares):
         print("\nPares de temas que más confundimos:", pares.value_counts().head(8).to_dict())
@@ -124,5 +160,7 @@ def alfa():
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "alfa":
         alfa()
+    elif len(sys.argv) > 1 and sys.argv[1] == "asignar":
+        asignar()
     else:
         muestra(*[int(v) for v in sys.argv[2:4]])

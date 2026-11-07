@@ -1,12 +1,13 @@
 """Pasa la codificación a mano de la página web a las hojas de 08_validacion.py.
 
-Tania y Paola codifican en la página "Codificación de temas CAP"
+Tania, Paola y Diego codifican en la página "Codificación de temas CAP"
 (https://claude.ai/artifact/Q2b6azTqbge7jEvdrnqzJ2). Cada una guarda sus respuestas en
-un documento `codigos/<su id>` de la base de datos de la página, con su hoja (A o B).
+un documento `codigos/<su id>` de la base de datos de la página, con su hoja (A, B o C).
+Cada unidad la codifican dos de los tres (datos/validacion/asignacion.csv).
 
 Primero se baja la colección `codigos` a una carpeta (Claude lo hace con la herramienta
 ArtifactData, `list` con `out_dir`); luego este script llena las columnas tema, blanco y
-notas de datos/validacion/hoja_codificador_A.csv y _B.csv. Después: 08_validacion.py alfa.
+notas de datos/validacion/hoja_codificador_A.csv, _B.csv y _C.csv. Después: 08_validacion.py alfa.
 
 Uso: python 13_bajar_codificacion.py <carpeta con los JSON de codigos>
 """
@@ -31,13 +32,14 @@ def cuerpo(f):
 def main(carpeta):
     docs = [cuerpo(f) for f in sorted(Path(carpeta).rglob("*.json"))]
     docs = [d for d in docs if "respuestas" in d]
+    asig = pd.read_csv(VAL / "asignacion.csv")
     por_hoja = {}
     for d in docs:
         h = d.get("hoja")
         if h in por_hoja:
             sys.exit(f"Hay dos documentos con la hoja {h}; revisa cuál es el bueno antes de seguir.")
         por_hoja[h] = d["respuestas"]
-    for h in "AB":
+    for h in "ABC":
         if h not in por_hoja:
             print(f"Hoja {h}: nadie la ha llenado todavía.")
             continue
@@ -49,8 +51,9 @@ def main(carpeta):
         t["notas"] = t.unidad.map(lambda u: r.get(u, {}).get("notas"))
         t["tema"] = t.tema.astype("Int64")
         t.to_csv(hoja, index=False)
-        falta = t.tema.isna().sum() + ((t.tipo == "seccion") & t.blanco.isna()).sum()
-        print(f"Hoja {h}: {t.tema.notna().sum()} de {len(t)} con tema; {falta} campos por llenar.")
+        mias = t.unidad.isin(asig[asig.codificadores.str.contains(h)].unidad)
+        falta = (mias & t.tema.isna()).sum() + (mias & (t.tipo == "seccion") & t.blanco.isna()).sum()
+        print(f"Hoja {h}: {t.tema.notna().sum()} de {mias.sum()} asignadas con tema; {falta} campos por llenar.")
 
 
 if __name__ == "__main__":
