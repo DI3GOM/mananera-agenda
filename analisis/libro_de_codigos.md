@@ -45,6 +45,9 @@ Se asigna **un solo tema**: el de la política pública de la que trata el texto
 - **Críticas generales al gobierno** (sus resultados o su manera de gobernar, sin una política concreta en el centro): 20. Si es un ataque a una persona, 0.
 - **Felicitaciones, reconocimientos y homenajes a personas**: 0, salvo que la intervención defienda una política concreta.
 - **Consejeros del INE, jueces y titulares de órganos autónomos**, cuando son el blanco de un ítem: "otro", salvo que la sección los presente como parte de la oposición.
+- **Crímenes de odio y agravantes contra un grupo** (personas LGBT, indígenas, con discapacidad): igual que la violencia contra las mujeres. Si propone penas o tipifica un delito, 12; si trata de igualdad o derechos, 2.
+- **Reconocimientos a autoridades por una obra o programa**: 0, aunque describan la obra. Solo van al tema de la obra si la intervención propone o defiende un cambio de política.
+- **Asuntos de familia** (pensión alimenticia, deudores alimentarios, adopción, custodia): 12.
 
 ## Blanco del ítem (solo para la sección de la mañanera)
 
