@@ -213,7 +213,17 @@ def exportar(tarea):
             it = {**it, "turno_fin": min(it["turno_fin"], int(g.index.max()))}
             palabras = int(g.loc[it["turno_inicio"]:it["turno_fin"]].sum())
             items.append({"emision": e, "item": k, **it, "palabras": palabras})
-    pd.DataFrame(items).to_csv(CARPETA / "temas_seccion.csv", index=False)
+    items = pd.DataFrame(items)
+    # Aclaraciones del libro posteriores a la clasificación: se aplican a ítems concretos y
+    # quedan registradas (datos/clasificar/recodificaciones.csv); la respuesta original no se toca.
+    rec = CARPETA / "recodificaciones.csv"
+    items["tema_modelo"] = items.tema
+    if rec.exists():
+        r = pd.read_csv(rec).set_index(["emision", "turno_inicio"]).tema
+        clave = list(zip(items.emision, items.turno_inicio))
+        items["tema"] = [int(r.get(k, t)) for k, t in zip(clave, items.tema)]
+        print(f"  {sum(k in r.index for k in clave)} de {len(r)} recodificaciones aplicadas")
+    items.to_csv(CARPETA / "temas_seccion.csv", index=False)
     print(f"temas_seccion.csv: {len(items)} ítems de {len(ok)} emisiones")
     if fuera:
         print(f"  {len(fuera)} ítems fuera del corte actual de la sección: {'; '.join(fuera)}")

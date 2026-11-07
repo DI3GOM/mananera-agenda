@@ -48,6 +48,7 @@ Se asigna **un solo tema**: el de la política pública de la que trata el texto
 - **Crímenes de odio y agravantes contra un grupo** (personas LGBT, indígenas, con discapacidad): igual que la violencia contra las mujeres. Si propone penas o tipifica un delito, 12; si trata de igualdad o derechos, 2.
 - **Reconocimientos a autoridades por una obra o programa**: 0, aunque describan la obra. Solo van al tema de la obra si la intervención propone o defiende un cambio de política.
 - **Asuntos de familia** (pensión alimenticia, deudores alimentarios, adopción, custodia): 12.
+- **Campañas en redes contra el Presidente** (bots, #NarcoPresidente): 0, como ataque personal sin una política detrás. *Aclaración del 7 de noviembre, después de clasificar las secciones con la versión 41c1a29a785c; en esas secciones se aplicó a 8 ítems (`datos/clasificar/recodificaciones.csv`).*
 
 ## Blanco del ítem (solo para la sección de la mañanera)
 
