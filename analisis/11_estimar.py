@@ -83,13 +83,19 @@ def cargar_reales(elegidos):
     d = intervenciones()
     t = pd.read_csv(CLAS / "temas_intervenciones.csv")[["id", "tema"]].dropna()
     d = d.merge(t, on="id", how="left")
-    if d.tema.isna().any():
-        print(f"Aviso: {d.tema.isna().sum()} intervenciones sin clasificar; no entran.")
-        d = d.dropna(subset=["tema"])
+    sesiones = set(ventanas().sesion) | set(ventanas(True).sesion)
+    falta = d.tema.isna() & d.sesion.isin(sesiones)
+    if falta.any():
+        print(f"Aviso: {falta.sum()} intervenciones de sesiones en ventanas sin clasificar; no entran.")
+    d = d.dropna(subset=["tema"])
     d["tema"] = [etiqueta(c, elegidos) for c in d.tema]
     s = pd.read_csv(CLAS / "temas_seccion.csv")
     toc = {e: {etiqueta(c, elegidos) for c in g.tema} for e, g in s.groupby("emision")}
-    faltan = [e for e in emisiones_todas() if e not in toc]
+    # Solo importan las emisiones de la muestra y sus vecinas (la anterior y la siguiente).
+    orden = emisiones_todas()
+    muestra = set(ventanas().emision)
+    vecinas = {orden[j] for i, e in enumerate(orden) if e in muestra for j in (i - 1, i, i + 1) if 0 <= j < len(orden)}
+    faltan = sorted(e for e in vecinas if e not in toc)
     if faltan:
         print(f"Aviso: {len(faltan)} emisiones sin sección clasificada (cuentan como sin temas): "
               f"{', '.join(faltan[:6])}{'…' if len(faltan) > 6 else ''}")
