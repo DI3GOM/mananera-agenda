@@ -56,7 +56,6 @@ HILOS = 8
 
 LIBRO = (Path(__file__).parent / "libro_de_codigos.md").read_text(encoding="utf-8")
 CODIGOS = sorted({int(c) for c in re.findall(r"^- \*\*(\d+) ", LIBRO, re.M)})
-VERSION_LIBRO = hashlib.sha256(LIBRO.encode()).hexdigest()[:12]
 
 INSTRUCCIONES = {
     "diputados": (
@@ -103,6 +102,10 @@ ESQUEMAS = {
     },
 }
 MAX_TOKENS = {"diputados": 4000, "seccion": 16000}
+# Huella del libro de códigos y de las instrucciones de las dos tareas: si cambia
+# una coma, cambia la versión.
+VERSION_LIBRO = hashlib.sha256((LIBRO + INSTRUCCIONES["diputados"] + INSTRUCCIONES["seccion"])
+                               .encode()).hexdigest()[:12]
 
 
 def fuera_de_muestra():

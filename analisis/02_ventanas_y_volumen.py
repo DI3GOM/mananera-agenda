@@ -32,7 +32,7 @@ def sesiones_lxv():
     return cal.sort_values(["fecha", "sufijo"]).reset_index(drop=True)
 
 
-def ventanas(cal, mismo_dia_es_post=True):
+def ventanas(cal, mismo_dia_es_post=False):
     emis = pd.read_csv(f"{RAIZ}/datos/emisiones_quien_es_quien.csv", parse_dates=["fecha"])
     filas = []
     for f in emis.fecha:
@@ -57,9 +57,10 @@ def ventanas(cal, mismo_dia_es_post=True):
 
 def main():
     cal = sesiones_lxv()
+    # La sesión de la tarde del mismo miércoles no cuenta como "después" (v3): quedan 64.
     v = ventanas(cal)
-    v0 = ventanas(cal, mismo_dia_es_post=False)
-    print(f"Emisiones con ventana completa: {v.emision.nunique()} (si la sesión del mismo día no cuenta: {v0.emision.nunique()})")
+    v1 = ventanas(cal, mismo_dia_es_post=True)
+    print(f"Emisiones con ventana completa: {v.emision.nunique()} (si la sesión del mismo día contara: {v1.emision.nunique()})")
     print(f"Sesiones distintas usadas: {v.sesion.nunique()}; lugares en ventanas: {len(v)}")
     reps = v.groupby("sesion").size()
     print("Ventanas en que aparece cada sesión:", reps.value_counts().sort_index().to_dict())
