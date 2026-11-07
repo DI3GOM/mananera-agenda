@@ -7,7 +7,8 @@
    fechas la transcripción le atribuye al Presidente lo que dice la presentadora;
    por eso también se busca por las frases de apertura y cierre.
 2. Las intervenciones de los diputados en las secciones libres de la LXV. La
-   versión estenográfica no marca párrafos, así que la unidad es la intervención.
+   versión estenográfica no marca párrafos, así que la unidad es la intervención:
+   los turnos seguidos de un mismo diputado, aunque la Mesa lo interrumpa.
 
 No se mira ningún resultado: solo se extrae texto.
 Salidas: datos/clasificar/seccion_turnos.csv y datos/clasificar/intervenciones.csv
@@ -77,11 +78,22 @@ def turnos_seccion():
 
 def intervenciones():
     t = pd.read_csv(RAIZ / "datos" / "turnos_secciones.csv")
-    t = t[(t.rol == "diputado") & t.seccion.isin(LIBRES) & t.partido.isin(PARTIDOS)].copy()
+    t = t[t.rol == "diputado"].copy()
     t["sesion"] = t.fecha + t.sufijo.fillna("").map(lambda s: f"-{s}" if s else "")
+    # Cuando la Mesa interrumpe ("concluya, diputada"), el discurso queda partido en
+    # varios turnos. Los turnos seguidos de un mismo diputado en la misma sección son
+    # una sola intervención: solo se corta cuando habla otro diputado.
+    nueva = (t.orador != t.groupby("sesion").orador.shift()) | (t.seccion != t.groupby("sesion").seccion.shift())
+    t["grupo"] = nueva.cumsum()
+    t = t[t.seccion.isin(LIBRES) & t.partido.isin(PARTIDOS)]
+    t = (t.groupby("grupo", sort=False)
+         .agg(sesion=("sesion", "first"), seccion=("seccion", "first"), orador=("orador", "first"),
+              partido=("partido", "first"), palabras=("palabras", "sum"), turnos=("texto", "size"),
+              texto=("texto", " ".join))
+         .reset_index(drop=True))
     t["id"] = [f"d{i:05d}" for i in range(len(t))]
     t["corta"] = t.palabras < MIN_PALABRAS
-    return t[["id", "sesion", "seccion", "orador", "partido", "palabras", "corta", "texto"]]
+    return t[["id", "sesion", "seccion", "orador", "partido", "palabras", "turnos", "corta", "texto"]]
 
 
 def main():

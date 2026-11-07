@@ -40,6 +40,11 @@ Se asigna **un solo tema**: el de la política pública de la que trata el texto
 - **Guardia Nacional**: si trata de seguridad pública, 12; si trata de que pase a la Sedena o del papel del Ejército, 16.
 - **Corrupción**: en el gobierno, 20; en una empresa privada, 15; si es un delito que investiga la Fiscalía, 12.
 - **Desmentidos de la mañanera**: el tema es la política de la que trata la nota desmentida, no el hecho de que sea una mentira. "Es falso que falten medicamentos" va en 3. "Es falso que el Presidente esté enfermo" va en 0.
+- **La mañanera, los medios y la libertad de expresión** (censura, campañas contra la conferencia, ataques a periodistas): 2.
+- **Financiamiento extranjero de organizaciones o injerencia de otro gobierno**: 19.
+- **Críticas generales al gobierno** (sus resultados o su manera de gobernar, sin una política concreta en el centro): 20. Si es un ataque a una persona, 0.
+- **Felicitaciones, reconocimientos y homenajes a personas**: 0, salvo que la intervención defienda una política concreta.
+- **Consejeros del INE, jueces y titulares de órganos autónomos**, cuando son el blanco de un ítem: "otro", salvo que la sección los presente como parte de la oposición.
 
 ## Blanco del ítem (solo para la sección de la mañanera)
 

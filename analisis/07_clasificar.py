@@ -49,7 +49,7 @@ CARPETA = RAIZ / "datos" / "clasificar"
 LOTES = CARPETA / "lotes"
 SALIDAS = CARPETA / "salidas"
 MODELO = "claude-opus-5-5"
-ESFUERZO = "low"
+ESFUERZO = "medium"
 # Precios de claude-opus-5-5 por millón de tokens (octubre de 2026), solo para --estimar.
 PRECIO_ENTRADA, PRECIO_SALIDA = 4.00, 20.00
 HILOS = 8
