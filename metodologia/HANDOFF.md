@@ -41,7 +41,7 @@
 
 ## Lo que falta, en orden
 
-1. **Decisión pendiente de Diego:** ¿reducir la validación a 100 intervenciones (50/50) y 60 ítems? Se propuso para ahorrar tiempo; solo vale si se decide antes de que alguien codifique. Si se aprueba: subconjunto estratificado de la muestra actual, rehacer `asignacion.csv` y la página.
+1. **Validación reducida (Diego, 8 de noviembre):** 160 unidades, 100 intervenciones (50/50) y 60 ítems, con `08_validacion.py reducir`. Es un subconjunto estratificado por bloque y pareja de la muestra de 230: conserva los id `u###` y las parejas, así que lo ya codificado de las unidades que quedan sigue valiendo. Hojas: A 106, B 108, C 106. **Falta** quitar de la página las 70 unidades que salieron; solo se puede desde la cuenta dueña de la página. Alternativa en uso desde el 8 de noviembre: un Excel por persona con solo sus unidades (`14_hojas_excel.py armar` → `datos/validacion/excel/`); de vuelta, `14_hojas_excel.py leer <xlsx…>` llena las hojas CSV y luego `08_validacion.py alfa`.
 2. Tania pasa las 13 correcciones a su plan (están en `notas/10-correcciones-al-plan-final.md`, solo en la Mac de Diego; pídeselas si no las tienes). El plan corregido se guarda en `metodologia/` y se pone la etiqueta `plan-congelado` (con el OK de Diego).
 3. Codificación a mano → `08_validacion.py alfa`. Si el alfa sale entre 0.67 y 0.80 se reporta como tentativo; debajo de 0.67 se juntan una vez los temas que más se confunden. Revisar el acierto del modelo por bloque.
 4. Fijar temas con el alfa por tema (`12_elegir_temas.py`) y volver a correr descriptivos.

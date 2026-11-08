@@ -15,8 +15,12 @@
             partes. Los grupos se arman por estratos (oposición, Morena, sección).
             Escribe datos/validacion/asignacion.csv y la hoja C.
 
+  reducir   Se queda con un subconjunto estratificado de la muestra ya asignada (por
+            defecto 100 intervenciones, 50 y 50, y 60 ítems) sin cambiar las parejas.
+
 Uso: python 08_validacion.py muestra [n_intervenciones] [n_items]
      python 08_validacion.py asignar
+     python 08_validacion.py reducir [n_intervenciones] [n_items]
      python 08_validacion.py alfa
 """
 import sys
@@ -91,6 +95,37 @@ def asignar():
     print(pd.crosstab(clave.bloque, clave.codificadores))
 
 
+def reducir(n_interv=100, n_items=60):
+    """Subconjunto estratificado de la muestra ya asignada (decisión del 8 de noviembre).
+
+    Conserva las unidades, sus id y su pareja de codificadores, así que lo que alguien ya
+    haya codificado de las que se quedan sigue valiendo. Dentro de cada bloque se toma lo
+    mismo de cada pareja (AB, AC, BC)."""
+    clave = pd.read_csv(VAL / "clave.csv")
+    asig = pd.read_csv(VAL / "asignacion.csv")
+    x = clave.merge(asig, on="unidad")
+    meta = {"oposicion": n_interv // 2, "morena": n_interv - n_interv // 2, "seccion": n_items}
+    partes = []
+    for bl, g in x.groupby("bloque"):
+        grupos = sorted(g.grupo.unique())
+        cuota = [meta[bl] // 3 + (i < meta[bl] % 3) for i in range(3)]
+        for gr, n in zip(grupos, cuota):
+            partes.append(g[g.grupo == gr].sample(n, random_state=SEMILLA))
+    queda = pd.concat(partes).unidad
+    clave[clave.unidad.isin(queda)].to_csv(VAL / "clave.csv", index=False)
+    asig[asig.unidad.isin(queda)].to_csv(VAL / "asignacion.csv", index=False)
+    for h in "ABC":
+        f = VAL / f"hoja_codificador_{h}.csv"
+        if f.exists():
+            t = pd.read_csv(f)
+            t[t.unidad.isin(queda)].to_csv(f, index=False)
+    x = x[x.unidad.isin(queda)]
+    print(f"Quedan {len(x)} unidades.")
+    print(pd.crosstab(x.bloque, x.codificadores))
+    for h in "ABC":
+        print(f"Hoja {h}: {x.codificadores.str.contains(h).sum()} unidades")
+
+
 def alfa_nominal(a, b):
     """Alfa de Krippendorff para dos codificadores, datos nominales, sin faltantes."""
     valores = np.concatenate([a, b])
@@ -162,5 +197,7 @@ if __name__ == "__main__":
         alfa()
     elif len(sys.argv) > 1 and sys.argv[1] == "asignar":
         asignar()
+    elif len(sys.argv) > 1 and sys.argv[1] == "reducir":
+        reducir(*[int(v) for v in sys.argv[2:4]])
     else:
         muestra(*[int(v) for v in sys.argv[2:4]])
