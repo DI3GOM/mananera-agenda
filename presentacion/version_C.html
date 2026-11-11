@@ -117,67 +117,99 @@ body.notas .nota{display:block}
 </section>
 </div>
 <p class="nota">De la mañanera usamos las 64 emisiones de la sección y 12 vecinas: 317 desmentidos. De la Cámara, las versiones estenográficas del Pleno: 2,316 intervenciones en las partes donde el grupo elige de qué hablar, en 154 sesiones. Para cada emisión tomamos las dos sesiones anteriores y las dos posteriores en el mismo periodo. La sesión de la tarde del mismo miércoles no cuenta como posterior, porque su orden del día se cerró antes de la mañanera.</p>
-<div class="marco"><section id="medicion" data-transition="fade" style="background:#F4EFE6;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<div class="marco"><section id="medicion" data-transition="fade" style="background:#F4EFE6;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:40px">
 <p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">Cómo etiquetamos los temas</p>
-<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:52px;font-weight:700;line-height:1.2">Un modelo de lenguaje pone un tema a cada texto</h2>
-<div style="display:flex;flex-direction:column;gap:0px">
-<div style="display:flex;gap:32px;align-items:center;border-top:2px solid #C9BEA8;padding:24px 0px">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:44px;font-weight:700;color:#B5532C;width:80px">1</p>
-<p style="font-size:30px;line-height:1.4">Un libro de códigos: los 21 temas del Comparative Agendas Project y “sin tema de política”</p>
+<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:50px;font-weight:700;line-height:1.2">Para comparar, desmentidos y discursos necesitan la misma lista de temas</h2>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;gap:24px;align-items:center">
+<div style="width:760px;background:#EAE2D3;padding:22px 28px;border-left:8px solid #1F3D36">
+<p style="font-size:22px;color:#5E6B66;text-transform:uppercase;letter-spacing:1px;font-weight:700">Lo que dice la sección</p>
+<p style="font-size:30px;line-height:1.35">“Es falso que falten medicamentos”</p>
 </div>
-<div style="display:flex;gap:32px;align-items:center;border-top:2px solid #C9BEA8;padding:24px 0px">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:44px;font-weight:700;color:#B5532C;width:80px">2</p>
-<p style="font-size:30px;line-height:1.4">Dos pilotos con textos fuera de la muestra; después lo congelamos</p>
+<p style="font-size:44px;color:#B5532C;font-weight:700">→</p>
+<div style="width:260px;background:#1F3D36;color:#FBF6EE;padding:22px 28px;text-align:center">
+<p style="font-size:22px;color:#C8DCD3">Tema</p>
+<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:34px;font-weight:700">3 Salud</p>
 </div>
-<div style="display:flex;gap:32px;align-items:center;border-top:2px solid #C9BEA8;padding:24px 0px">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:44px;font-weight:700;color:#B5532C;width:80px">3</p>
-<p style="font-size:30px;line-height:1.4">Claude Opus 5.5 clasifica cada desmentido e intervención. Ejemplo del libro: “es falso que falten medicamentos” va a Salud</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#4B5A55">La sección <b style="color:#1F3D36">tocó</b> Salud esa semana</p>
 </div>
-<div style="display:flex;gap:32px;align-items:center;border-top:2px solid #C9BEA8;border-bottom:2px solid #C9BEA8;padding:24px 0px">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:44px;font-weight:700;color:#B5532C;width:80px">4</p>
-<p style="font-size:30px;line-height:1.4">Al repetir una parte en otro lote, 92 de 100 intervenciones salen iguales</p>
+<div style="display:flex;gap:24px;align-items:center">
+<div style="width:760px;background:#EAE2D3;padding:22px 28px;border-left:8px solid #1F6F8B">
+<p style="font-size:22px;color:#5E6B66;text-transform:uppercase;letter-spacing:1px;font-weight:700">Lo que dice un diputado en tribuna</p>
+<p style="font-size:30px;line-height:1.35">Una iniciativa sobre el abasto de medicinas</p>
 </div>
+<p style="font-size:44px;color:#B5532C;font-weight:700">→</p>
+<div style="width:260px;background:#1F3D36;color:#FBF6EE;padding:22px 28px;text-align:center">
+<p style="font-size:22px;color:#C8DCD3">Tema</p>
+<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:34px;font-weight:700">3 Salud</p>
 </div>
-<aside>Para saber de qué trata cada texto usamos agentes de Claude Opus 5.5 con un libro de códigos: los 21 temas del Comparative Agendas Project y una categoría para lo que no es política pública. Lo probamos en dos pilotos con textos fuera de la muestra y lo congelamos. Cada texto recibe un solo tema; el ejemplo del propio libro: “es falso que falten medicamentos” va a salud. Al repetir una parte en otro lote, 92 de 100 intervenciones salieron iguales. Pero ser consistente no es acertar: para eso, la validación a mano.</aside>
-</section>
-</div>
-<p class="nota">Para saber de qué trata cada texto usamos agentes de Claude Opus 5.5 con un libro de códigos: los 21 temas del Comparative Agendas Project y una categoría para lo que no es política pública. Lo probamos en dos pilotos con textos fuera de la muestra y lo congelamos. Cada texto recibe un solo tema; el ejemplo del propio libro: “es falso que falten medicamentos” va a salud. Al repetir una parte en otro lote, 92 de 100 intervenciones salieron iguales. Pero ser consistente no es acertar: para eso, la validación a mano.</p>
-<div class="marco"><section id="validacion" data-transition="fade" style="background:#F4EFE6;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
-<p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">Validación a mano · por qué sirvió</p>
-<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:52px;font-weight:700;line-height:1.2">Medida confiable que no favorece a ningún bloque</h2>
-<div style="display:flex;gap:40px;align-items:center">
-<p style="font-size:28px;width:300px;line-height:1.3"><b>Acuerdo entre nosotros</b> (alfa de Krippendorff)</p>
-<div style="position:relative;width:1200px;height:150px">
-<p style="position:absolute;left:828px;top:0px;width:120px;font-size:30px;font-weight:700;text-align:center">0.87</p>
-<div style="position:absolute;left:0px;top:48px;width:408px;height:48px;background:#E8CFC2"></div>
-<div style="position:absolute;left:408px;top:48px;width:312px;height:48px;background:#EBDDBF"></div>
-<div style="position:absolute;left:720px;top:48px;width:480px;height:48px;background:#C8DCD3"></div>
-<div style="position:absolute;left:884px;top:40px;width:8px;height:64px;background:#1F3D36"></div>
-<p style="position:absolute;left:0px;top:108px;width:100px;font-size:24px;color:#5E6B66">0.50</p>
-<p style="position:absolute;left:348px;top:108px;width:120px;font-size:24px;color:#5E6B66;text-align:center">0.67</p>
-<p style="position:absolute;left:640px;top:108px;width:160px;font-size:24px;color:#1F3D36;text-align:center;font-weight:700">0.80 meta</p>
-<p style="position:absolute;left:1100px;top:108px;width:100px;font-size:24px;color:#5E6B66;text-align:right">1.00</p>
+<p style="flex:1;font-size:26px;line-height:1.35;color:#4B5A55">Sus palabras <b style="color:#1F3D36">cuentan</b> para Salud</p>
 </div>
 </div>
 <div style="display:flex;gap:28px">
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#EAE2D3;padding:28px 32px;border-top:8px solid #1F6F8B">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:64px;font-weight:700;line-height:1.1">95%</p>
-<p style="font-size:26px;color:#4B5A55">el modelo coincide: oposición</p>
+<div style="flex:1;border-top:3px solid #B5532C;padding:20px 0px 0px 0px">
+<p style="font-size:28px;font-weight:700">22 categorías fijas</p>
+<p style="font-size:24px;line-height:1.4;color:#4B5A55">Los 21 temas del Comparative Agendas Project y “sin tema de política”. Un solo tema por texto.</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#EAE2D3;padding:28px 32px;border-top:8px solid #D9822B">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:64px;font-weight:700;line-height:1.1">100%</p>
-<p style="font-size:26px;color:#4B5A55">el modelo coincide: Morena</p>
+<div style="flex:1;border-top:3px solid #B5532C;padding:20px 0px 0px 0px">
+<p style="font-size:28px;font-weight:700">Reglas antes de la muestra</p>
+<p style="font-size:24px;line-height:1.4;color:#4B5A55">Probamos el libro de códigos en dos pilotos con textos de fuera y lo congelamos.</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:6px;background:#EAE2D3;padding:28px 32px;border-top:8px solid #1F3D36">
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:64px;font-weight:700;line-height:1.1">94%</p>
-<p style="font-size:26px;color:#4B5A55">el modelo coincide: desmentidos</p>
+<div style="flex:1;border-top:3px solid #B5532C;padding:20px 0px 0px 0px">
+<p style="font-size:28px;font-weight:700">Claude Opus 5.5 lo aplica</p>
+<p style="font-size:24px;line-height:1.4;color:#4B5A55">A 317 desmentidos y 2,316 intervenciones. Al repetir, 92 de 100 salen iguales.</p>
 </div>
 </div>
-<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#5E6B66">160 textos al azar, dos codificadores por texto. Acierto: en las 135 unidades donde coincidimos.</p>
-<aside>Tres de nosotros codificamos a mano 160 textos al azar, dos personas por texto, sin ver partido, fecha ni lo que dijo el modelo. Nuestro acuerdo fue de 0.87: arriba de la meta de 0.80 que fijamos, y lejos de 0.67, donde habríamos tenido que juntar temas. Donde los dos coincidimos, el modelo dice lo mismo en 95% de las intervenciones de la oposición, 100% de Morena y 94% de los desmentidos: sin una diferencia relevante entre bloques. Por eso sirvió: si el modelo acertara más con un bloque, la comparación entre bloques estaría sesgada.</aside>
+<p style="font-size:24px;color:#5E6B66">Ejemplo ilustrativo; el desmentido es el ejemplo del libro de códigos. Que salga igual al repetir no prueba que acierte: eso lo prueba la validación a mano.</p>
+<aside>Para saber si un diputado habló del tema que tocó la sección, los dos textos tienen que estar en la misma lista de temas. Usamos los 21 temas del Comparative Agendas Project y una categoría para lo que no es política pública; cada texto recibe un solo tema. Por ejemplo, “es falso que falten medicamentos” va a Salud, y una iniciativa sobre abasto de medicinas también va a Salud: así sabemos qué parte del discurso de cada partido trata del tema tocado. Antes de clasificar la muestra probamos el libro de códigos en dos pilotos con textos de fuera y lo congelamos. Después Claude Opus 5.5 lo aplicó a los 317 desmentidos y las 2,316 intervenciones. Al repetir una parte en otro lote, 92 de 100 salieron iguales. Pero ser consistente no es acertar; para eso está la validación a mano.</aside>
 </section>
 </div>
-<p class="nota">Tres de nosotros codificamos a mano 160 textos al azar, dos personas por texto, sin ver partido, fecha ni lo que dijo el modelo. Nuestro acuerdo fue de 0.87: arriba de la meta de 0.80 que fijamos, y lejos de 0.67, donde habríamos tenido que juntar temas. Donde los dos coincidimos, el modelo dice lo mismo en 95% de las intervenciones de la oposición, 100% de Morena y 94% de los desmentidos: sin una diferencia relevante entre bloques. Por eso sirvió: si el modelo acertara más con un bloque, la comparación entre bloques estaría sesgada.</p>
+<p class="nota">Para saber si un diputado habló del tema que tocó la sección, los dos textos tienen que estar en la misma lista de temas. Usamos los 21 temas del Comparative Agendas Project y una categoría para lo que no es política pública; cada texto recibe un solo tema. Por ejemplo, “es falso que falten medicamentos” va a Salud, y una iniciativa sobre abasto de medicinas también va a Salud: así sabemos qué parte del discurso de cada partido trata del tema tocado. Antes de clasificar la muestra probamos el libro de códigos en dos pilotos con textos de fuera y lo congelamos. Después Claude Opus 5.5 lo aplicó a los 317 desmentidos y las 2,316 intervenciones. Al repetir una parte en otro lote, 92 de 100 salieron iguales. Pero ser consistente no es acertar; para eso está la validación a mano.</p>
+<div class="marco"><section id="validacion" data-transition="fade" style="background:#F4EFE6;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">Validación a mano · por qué sirvió</p>
+<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:50px;font-weight:700;line-height:1.2">Revisamos 160 textos a mano: el modelo acierta igual con los dos bloques</h2>
+<p style="font-size:26px;line-height:1.4;color:#4B5A55">Tomamos 160 textos al azar. Cada uno lo codificaron dos de nosotros, sin ver el partido, la fecha ni lo que dijo el modelo. Luego hicimos dos preguntas.</p>
+<div style="display:flex;gap:48px">
+<div style="width:760px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:30px;font-weight:700"><span style="color:#B5532C">1.</span> ¿Coincidimos entre nosotros?</p>
+<p style="font-size:24px;line-height:1.4;color:#4B5A55">Sí: en 135 de 160 textos pusimos el mismo tema. El alfa de Krippendorff corrige por el acuerdo que daría el azar: 1 es acuerdo perfecto y 0 es puro azar.</p>
+<div style="position:relative;width:760px;height:130px">
+<p style="position:absolute;left:502px;top:0px;width:120px;font-size:30px;font-weight:700;text-align:center">0.87</p>
+<div style="position:absolute;left:0px;top:46px;width:258px;height:44px;background:#E8CFC2"></div>
+<div style="position:absolute;left:258px;top:46px;width:198px;height:44px;background:#EBDDBF"></div>
+<div style="position:absolute;left:456px;top:46px;width:304px;height:44px;background:#C8DCD3"></div>
+<div style="position:absolute;left:558px;top:38px;width:8px;height:60px;background:#1F3D36"></div>
+<p style="position:absolute;left:0px;top:98px;width:80px;font-size:22px;color:#5E6B66">0.50</p>
+<p style="position:absolute;left:198px;top:98px;width:120px;font-size:22px;color:#5E6B66;text-align:center">0.67</p>
+<p style="position:absolute;left:376px;top:98px;width:160px;font-size:22px;color:#1F3D36;text-align:center;font-weight:700">0.80 meta</p>
+<p style="position:absolute;left:680px;top:98px;width:80px;font-size:22px;color:#5E6B66;text-align:right">1.00</p>
+</div>
+<p style="font-size:22px;line-height:1.4;color:#5E6B66">La meta de 0.80 la fijamos antes. Abajo de 0.67 habríamos tenido que juntar temas.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:30px;font-weight:700"><span style="color:#B5532C">2.</span> ¿El modelo dice lo mismo que nosotros?</p>
+<p style="font-size:24px;line-height:1.4;color:#4B5A55">En los 135 textos donde coincidimos, cuántas veces el modelo puso el mismo tema:</p>
+<div style="display:flex;gap:16px">
+<div style="flex:1;background:#EAE2D3;padding:18px 22px;border-top:8px solid #1F6F8B">
+<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:48px;font-weight:700">95%</p>
+<p style="font-size:22px;color:#4B5A55">Oposición<br>40 de 42</p>
+</div>
+<div style="flex:1;background:#EAE2D3;padding:18px 22px;border-top:8px solid #D9822B">
+<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:48px;font-weight:700">100%</p>
+<p style="font-size:22px;color:#4B5A55">Morena<br>39 de 39</p>
+</div>
+<div style="flex:1;background:#EAE2D3;padding:18px 22px;border-top:8px solid #1F3D36">
+<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:48px;font-weight:700">94%</p>
+<p style="font-size:22px;color:#4B5A55">Desmentidos<br>51 de 54</p>
+</div>
+</div>
+</div>
+</div>
+<p style="font-size:28px;line-height:1.4;background:#1F3D36;color:#FBF6EE;padding:22px 28px"><b>Por qué importa:</b> si el modelo se equivocara más con un bloque, la diferencia entre bloques mediría su error y no lo que hacen los diputados.</p>
+<aside>Para saber si el modelo acierta, tomamos 160 textos al azar: 100 intervenciones, mitad de la oposición y mitad de Morena, y 60 desmentidos. Cada texto lo codificaron dos de nosotros, sin ver partido, fecha ni lo que dijo el modelo. Primera pregunta: ¿coincidimos entre nosotros? En 135 de 160 pusimos el mismo tema. El alfa de Krippendorff descuenta el acuerdo que daría el azar; nos dio 0.87, arriba de la meta de 0.80 que fijamos antes. Si hubiera quedado abajo de 0.67, habríamos tenido que juntar temas. Segunda pregunta: en esos 135 textos, ¿el modelo pone el mismo tema que nosotros? En la oposición acierta 40 de 42, en Morena 39 de 39 y en los desmentidos 51 de 54. Por eso sirvió: si el modelo se equivocara más con un bloque, la comparación entre bloques mediría su error y no la conducta de los diputados.</aside>
+</section>
+</div>
+<p class="nota">Para saber si el modelo acierta, tomamos 160 textos al azar: 100 intervenciones, mitad de la oposición y mitad de Morena, y 60 desmentidos. Cada texto lo codificaron dos de nosotros, sin ver partido, fecha ni lo que dijo el modelo. Primera pregunta: ¿coincidimos entre nosotros? En 135 de 160 pusimos el mismo tema. El alfa de Krippendorff descuenta el acuerdo que daría el azar; nos dio 0.87, arriba de la meta de 0.80 que fijamos antes. Si hubiera quedado abajo de 0.67, habríamos tenido que juntar temas. Segunda pregunta: en esos 135 textos, ¿el modelo pone el mismo tema que nosotros? En la oposición acierta 40 de 42, en Morena 39 de 39 y en los desmentidos 51 de 54. Por eso sirvió: si el modelo se equivocara más con un bloque, la comparación entre bloques mediría su error y no la conducta de los diputados.</p>
 <div class="marco"><section id="diseno" data-transition="fade" style="background:#EAE2D3;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:44px">
 <p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">El diseño y los ceros</p>
 <h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:52px;font-weight:700;line-height:1.2">El tema tocado contra los que nadie tocó, en el mismo partido</h2>
