@@ -2,11 +2,10 @@
 
 Tres versiones con los mismos resultados y distinto diseño. Cada versión corrigió la crítica que se le hizo a la anterior; la recomendada es la **C**.
 
-| Versión | Estilo | Diapositivas |
-|---|---|---|
-| [C](version_C.pdf) (recomendada) | Tono impreso, crema y terracota; intervalos verticales, ceros y tabla de respaldo | 13 |
-| [B](version_B.pdf) | Oscuro; intervalos horizontales, lineal contra Poisson con puntos, barras de poder | 13 |
-| [A](version_A.pdf) | Académico claro; usa la figura `figura_efecto_real.png` | 13 |
+| Versión | Diapositivas | Notas del orador | Estilo | Diapositivas |
+|---|---|---|---|---|
+| **C** (recomendada) | [PDF](version_C.pdf) | [notas](notas_version_C.md) | Tono impreso, crema y terracota; método paso a paso, estudio de eventos general y por tema | 14 |
+| B | [PDF](version_B.pdf) | [notas](notas_version_B.md) | Oscuro; intervalos horizontales, lineal contra Poisson con puntos, barras de poder | 13 |
+| A | [PDF](version_A.pdf) | [notas](notas_version_A.md) | Académico claro; usa `analisis/figura_efecto_real.png` | 13 |
 
-- Los **PDF** se ven directo en GitHub.
-- Los **HTML** (`version_A.html`, etc.) traen las notas del orador: descárgalos, ábrelos en el navegador y pulsa "Mostrar/ocultar notas del orador".
+Las figuras de resultados de la C salen de `analisis/16_figura_eventos.py`. La de tema por tema (`analisis/15_eventos_por_tema.py`) es **exploratoria**: se decidió después de ver resultados y se corrió una vez.
