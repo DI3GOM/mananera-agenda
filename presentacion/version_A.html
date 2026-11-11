@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿La mañanera fija la agenda de la oposición? (versión A)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#202020}
+section{width:1920px;height:1080px;position:relative;overflow:hidden}
+section aside{display:none}
+.marco{position:relative;margin:0 auto 24px;overflow:hidden}
+.marco section{transform-origin:0 0;position:absolute;left:0;top:0}
+.nota{color:#ddd;font:16px/1.5 Arial,sans-serif;max-width:900px;margin:-12px auto 32px;padding:0 16px;display:none}
+body.notas .nota{display:block}
+.barra{position:sticky;top:0;z-index:9;background:#111;color:#eee;font:14px Arial,sans-serif;padding:8px 16px;display:flex;gap:16px;align-items:center}
+.barra button{font:inherit;padding:4px 10px;cursor:pointer}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{background:none}
+  .barra,.nota{display:none!important}
+  .marco{width:1920px!important;height:1080px!important;margin:0;page-break-after:always;break-after:page}
+  .marco section{transform:none!important}
+}
+</style></head>
+<body>
+<div class="barra"><b>¿La mañanera fija la agenda de la oposición? (versión A)</b><button onclick="document.body.classList.toggle('notas')">Mostrar/ocultar notas del orador</button><span>Desplázate para ver todas las diapositivas</span></div>
+<div class="marco"><section id="cover" data-transition="fade" style="background:#18202E;color:#F3F0E8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-size:28px;color:#9DB7E8;letter-spacing:2px;text-transform:uppercase">Tópicos de Políticas Públicas II · Equipo 1</p>
+<div style="display:flex;flex-direction:column;gap:40px">
+<h1 style="font-family:'Source Serif 4', Georgia, serif;font-size:104px;font-weight:600;line-height:1.05;color:#F3F0E8">¿La mañanera fija la agenda de la oposición?</h1>
+<p style="font-size:40px;color:#C9CED8;line-height:1.3">“Quién es quién en las mentiras” y la Cámara de Diputados, 2021–2024</p>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:end">
+<p style="font-size:30px;color:#F3F0E8">Diego Méndez · Tania Hernández · Paola Carmona</p>
+<p style="font-size:28px;color:#9DB7E8">12 de noviembre de 2026</p>
+</div>
+<aside>Buenas tardes. Somos el Equipo 1. Nuestra pregunta es si la sección de la mañanera que desmentía notas, “Quién es quién en las mentiras”, cambiaba de qué hablaban los diputados. Les vamos a contar qué queríamos medir, cómo lo medimos, por qué elegimos el modelo que elegimos, qué encontramos y qué sigue.</aside>
+</section>
+</div>
+<p class="nota">Buenas tardes. Somos el Equipo 1. Nuestra pregunta es si la sección de la mañanera que desmentía notas, “Quién es quién en las mentiras”, cambiaba de qué hablaban los diputados. Les vamos a contar qué queríamos medir, cómo lo medimos, por qué elegimos el modelo que elegimos, qué encontramos y qué sigue.</p>
+<div class="marco"><section id="pregunta" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:56px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Qué queríamos medir</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:60px;font-weight:600;line-height:1.15">Cuando la sección desmiente una nota sobre un tema de política pública, ¿los diputados hablan más de ese tema en las dos sesiones siguientes?</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border-top:8px solid #2160C4;padding:36px">
+<h3 style="font-size:36px;font-weight:600;color:#18202E">La oposición</h3>
+<p style="font-size:28px;color:#4A5263">PAN, PRI, PRD y MC, juntos</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border-top:8px solid #C2541F;padding:36px">
+<h3 style="font-size:36px;font-weight:600;color:#18202E">Morena</h3>
+<p style="font-size:28px;color:#4A5263">El partido del Presidente</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border-top:8px solid #18202E;padding:36px">
+<h3 style="font-size:36px;font-weight:600;color:#18202E">La diferencia</h3>
+<p style="font-size:28px;color:#4A5263">¿Responde más uno que otro?</p>
+</div>
+</div>
+<p style="font-size:30px;color:#4A5263;line-height:1.4"><b style="color:#18202E">Por qué importa:</b> a la oposición le toca vigilar al gobierno. Si el Ejecutivo influye en de qué habla, también influye en qué se le vigila.</p>
+<aside>De 2021 a 2024, cada miércoles la mañanera tuvo una sección que desmentía notas de medios y de políticos. Nuestra pregunta: cuando esa sección toca un tema de política pública, como salud o energía, ¿los diputados hablan más de ese tema en las dos sesiones siguientes? Lo medimos por separado para la oposición y para Morena, y después los comparamos. Importa porque la oposición es la que vigila al gobierno: si el gobierno decide de qué se habla, también decide qué se vigila.</aside>
+</section>
+</div>
+<p class="nota">De 2021 a 2024, cada miércoles la mañanera tuvo una sección que desmentía notas de medios y de políticos. Nuestra pregunta: cuando esa sección toca un tema de política pública, como salud o energía, ¿los diputados hablan más de ese tema en las dos sesiones siguientes? Lo medimos por separado para la oposición y para Morena, y después los comparamos. Importa porque la oposición es la que vigila al gobierno: si el gobierno decide de qué se habla, también decide qué se vigila.</p>
+<div class="marco"><section id="literatura" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Literatura</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Dos teorías dan expectativas opuestas</h2>
+<div style="display:flex;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:26px;color:#4A5263;font-weight:600;text-transform:uppercase;letter-spacing:1px">Nos apoyamos en</p>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border-left:6px solid #2160C4">
+<h3 style="font-size:32px;font-weight:600">Lovett, Bevan y Baumgartner (2015)</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Los temas del informe del presidente de EE. UU. aumentan las audiencias del Congreso, si es popular. → La oposición podría responder.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border-left:6px solid #C2541F">
+<h3 style="font-size:32px;font-weight:600">Petrocik (1996)</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Cada partido tiene fama en ciertos temas y los enfatiza. → La oposición preferiría sus propios temas.</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:26px;color:#4A5263;font-weight:600;text-transform:uppercase;letter-spacing:1px">Nos inspiramos en</p>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ECE8DE;padding:32px">
+<h3 style="font-size:32px;font-weight:600">Olden y Møen (2022)</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Si dos diferencias en diferencias tienen el mismo sesgo, al restarlas se cancela.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#ECE8DE;padding:32px">
+<h3 style="font-size:32px;font-weight:600">Comparative Agendas Project · Simmons et al. (2011)</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Los temas y su libro de códigos; fijar el análisis antes de ver datos.</p>
+</div>
+</div>
+</div>
+<aside>Nos apoyamos en dos textos que apuntan en direcciones distintas. Lovett, Bevan y Baumgartner encuentran que cuando un presidente popular de Estados Unidos destaca un tema en su informe anual, después el Congreso le dedica más audiencias, sobre todo en los primeros meses. De ahí sale que la oposición podría responder. Ellos no comparan partidos dentro de una cámara; eso es lo que agregamos. Petrocik dice que cada partido tiene fama de manejar mejor ciertos temas y que sus candidatos los enfatizan. Aplicarlo a la tribuna es extensión nuestra: la oposición preferiría sus temas a los de la mañanera. Del lado del método, Olden y Møen muestran que si dos diferencias en diferencias tienen el mismo sesgo, al restarlas se cancela; por eso comparamos oposición contra Morena. Los temas vienen del Comparative Agendas Project, y de Simmons y coautores tomamos la idea de fijar el análisis antes de ver datos.</aside>
+</section>
+</div>
+<p class="nota">Nos apoyamos en dos textos que apuntan en direcciones distintas. Lovett, Bevan y Baumgartner encuentran que cuando un presidente popular de Estados Unidos destaca un tema en su informe anual, después el Congreso le dedica más audiencias, sobre todo en los primeros meses. De ahí sale que la oposición podría responder. Ellos no comparan partidos dentro de una cámara; eso es lo que agregamos. Petrocik dice que cada partido tiene fama de manejar mejor ciertos temas y que sus candidatos los enfatizan. Aplicarlo a la tribuna es extensión nuestra: la oposición preferiría sus temas a los de la mañanera. Del lado del método, Olden y Møen muestran que si dos diferencias en diferencias tienen el mismo sesgo, al restarlas se cancela; por eso comparamos oposición contra Morena. Los temas vienen del Comparative Agendas Project, y de Simmons y coautores tomamos la idea de fijar el análisis antes de ver datos.</p>
+<div class="marco"><section id="expectativas" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Qué esperábamos</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Cuatro resultados posibles, escritos antes de ver datos</h2>
+<table style="font-size:30px;color:#18202E;width:1664px">
+<tr style="background:#18202E"><th style="width:38%;color:#F3F0E8;text-align:left">Si sale…</th><th style="width:62%;color:#F3F0E8;text-align:left">Quiere decir…</th></tr>
+<tr style="background:#FFFFFF"><td>Oposición y Morena suben parecido</td><td>La mañanera mueve la agenda de toda la Cámara (como Lovett et al.)</td></tr>
+<tr style="background:#F7F5EF"><td>Morena sube más</td><td>Responde más el partido del Presidente</td></tr>
+<tr style="background:#FFFFFF"><td>La oposición no se mueve</td><td>La oposición se queda en sus temas (extensión de Petrocik)</td></tr>
+<tr style="background:#F7F5EF"><td>Ninguno se mueve</td><td>La sección no mueve la agenda de nadie, al menos no en un tamaño detectable</td></tr>
+</table>
+<aside>Antes de ver datos escribimos qué significaría cada resultado. Si los dos bloques suben parecido, la mañanera mueve a toda la Cámara. Si Morena sube más, responde más el partido del Presidente. Si la oposición no se mueve, se queda en sus temas, como en la extensión de Petrocik. Y si ninguno se mueve, la sección no mueve la agenda de nadie en un tamaño que podamos detectar. Guarden esta tabla: vamos a volver a ella al final.</aside>
+</section>
+</div>
+<p class="nota">Antes de ver datos escribimos qué significaría cada resultado. Si los dos bloques suben parecido, la mañanera mueve a toda la Cámara. Si Morena sube más, responde más el partido del Presidente. Si la oposición no se mueve, se queda en sus temas, como en la extensión de Petrocik. Y si ninguno se mueve, la sección no mueve la agenda de nadie en un tamaño que podamos detectar. Guarden esta tabla: vamos a volver a ella al final.</p>
+<div class="marco"><section id="datos" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:44px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Los datos</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Dos fuentes de texto, unidas por fecha</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:36px">
+<h3 style="font-size:32px;font-weight:600;color:#2160C4">La mañanera</h3>
+<p style="font-size:72px;font-family:'Source Serif 4', Georgia, serif;font-weight:600;line-height:1.1">64 emisiones</p>
+<p style="font-size:28px;color:#4A5263">317 desmentidos (“ítems”), cada uno con un tema</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:36px">
+<h3 style="font-size:32px;font-weight:600;color:#C2541F">La Cámara de Diputados</h3>
+<p style="font-size:72px;font-family:'Source Serif 4', Georgia, serif;font-weight:600;line-height:1.1">154 sesiones</p>
+<p style="font-size:28px;color:#4A5263">2,316 intervenciones donde el partido elige de qué hablar</p>
+</div>
+</div>
+<div style="display:flex;gap:16px;align-items:center">
+<p style="font-size:26px;color:#4A5263;width:190px">Ventana:</p>
+<p style="font-size:28px;background:#ECE8DE;padding:14px 28px;border-radius:8px">sesión −2</p>
+<p style="font-size:28px;background:#ECE8DE;padding:14px 28px;border-radius:8px">sesión −1</p>
+<p style="font-size:28px;background:#18202E;color:#F3F0E8;padding:14px 28px;border-radius:8px;font-weight:600">miércoles: la sección</p>
+<p style="font-size:28px;background:#DCE6F7;padding:14px 28px;border-radius:8px">sesión +1</p>
+<p style="font-size:28px;background:#DCE6F7;padding:14px 28px;border-radius:8px">sesión +2</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6A7180">Fuentes: transcripciones de NOSTRODATA; versiones estenográficas del Pleno, LXV Legislatura (sept. 2021 – abr. 2024), sesiones ordinarias.</p>
+<aside>Tenemos dos fuentes. De la mañanera, las 64 emisiones de la sección, con 317 desmentidos; a cada uno le asignamos un tema. De la Cámara, las versiones estenográficas del Pleno de la LXV Legislatura: 154 sesiones y 2,316 intervenciones en las partes donde el grupo elige de qué hablar, como iniciativas, proposiciones y agenda política. Para cada emisión tomamos las dos sesiones anteriores y las dos posteriores en el mismo periodo. La sesión de la tarde del mismo miércoles no cuenta como posterior, porque su orden del día se cerró antes de la mañanera.</aside>
+</section>
+</div>
+<p class="nota">Tenemos dos fuentes. De la mañanera, las 64 emisiones de la sección, con 317 desmentidos; a cada uno le asignamos un tema. De la Cámara, las versiones estenográficas del Pleno de la LXV Legislatura: 154 sesiones y 2,316 intervenciones en las partes donde el grupo elige de qué hablar, como iniciativas, proposiciones y agenda política. Para cada emisión tomamos las dos sesiones anteriores y las dos posteriores en el mismo periodo. La sesión de la tarde del mismo miércoles no cuenta como posterior, porque su orden del día se cerró antes de la mañanera.</p>
+<div class="marco"><section id="medicion" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Cómo etiquetamos los temas</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Un modelo de lenguaje asigna un tema a cada texto</h2>
+<div style="display:flex;gap:24px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:36px">
+<h3 style="font-size:32px;font-weight:600">1. El texto</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Un desmentido de la sección o una intervención de un diputado</p>
+</div>
+<x-shape kind="arrow-right" style="background:#9AA3B2;width:64px;height:32px"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:36px">
+<h3 style="font-size:32px;font-weight:600">2. Claude Opus 5.5</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Sigue nuestro libro de códigos: 21 temas del Comparative Agendas Project y “sin tema”</p>
+</div>
+<x-shape kind="arrow-right" style="background:#9AA3B2;width:64px;height:32px"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:36px">
+<h3 style="font-size:32px;font-weight:600">3. Un solo tema</h3>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">“Es falso que falten medicamentos” → Salud</p>
+</div>
+</div>
+<div style="display:flex;gap:24px;align-items:center;background:#ECE8DE;padding:28px 36px">
+<x-icon name="Check" style="color:#2160C4;width:48px;height:48px"></x-icon>
+<p style="font-size:30px;line-height:1.4"><b>Es estable:</b> clasificamos dos veces una parte, en lotes distintos. Salieron iguales 92 de 100 intervenciones y 6 de 8 secciones.</p>
+</div>
+<aside>Para saber de qué trata cada texto usamos agentes de Claude Opus 5.5. Cada desmentido y cada intervención recibe un solo tema: el de la política pública de la que trata, según un libro de códigos con los 21 temas del Comparative Agendas Project y una categoría para lo que no es política pública. Por ejemplo, “es falso que falten medicamentos” va a salud. Primero probamos el libro con textos fuera de la muestra y lo congelamos. Luego clasificamos dos veces una parte para ver si el modelo es consistente: 92 de 100 intervenciones salieron iguales. Pero que sea consistente no quiere decir que acierte. Para eso está la validación a mano.</aside>
+</section>
+</div>
+<p class="nota">Para saber de qué trata cada texto usamos agentes de Claude Opus 5.5. Cada desmentido y cada intervención recibe un solo tema: el de la política pública de la que trata, según un libro de códigos con los 21 temas del Comparative Agendas Project y una categoría para lo que no es política pública. Por ejemplo, “es falso que falten medicamentos” va a salud. Primero probamos el libro con textos fuera de la muestra y lo congelamos. Luego clasificamos dos veces una parte para ver si el modelo es consistente: 92 de 100 intervenciones salieron iguales. Pero que sea consistente no quiere decir que acierte. Para eso está la validación a mano.</p>
+<div class="marco"><section id="validacion" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:44px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Validación a mano</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Codificamos 160 textos a mano: el modelo coincide con nosotros</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:36px">
+<p style="font-size:120px;font-family:'Source Serif 4', Georgia, serif;font-weight:600;line-height:1;color:#2160C4">0.87</p>
+<p style="font-size:28px;color:#18202E;font-weight:600">Acuerdo entre nosotros</p>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Alfa de Krippendorff; la meta era 0.80</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:36px">
+<p style="font-size:120px;font-family:'Source Serif 4', Georgia, serif;font-weight:600;line-height:1;color:#2160C4">96%</p>
+<p style="font-size:28px;color:#18202E;font-weight:600">El modelo coincide</p>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">En las 135 unidades en que los dos codificadores coincidimos</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;padding:36px">
+<p style="font-size:120px;font-family:'Source Serif 4', Georgia, serif;font-weight:600;line-height:1;color:#2160C4">95%</p>
+<p style="font-size:28px;color:#18202E;font-weight:600">Con la oposición (Morena: 100%)</p>
+<p style="font-size:26px;color:#4A5263;line-height:1.4">Acierta casi igual con los dos bloques</p>
+</div>
+</div>
+<p style="font-size:28px;color:#4A5263;line-height:1.4"><b style="color:#18202E">Cómo:</b> 100 intervenciones (50 y 50) y 60 desmentidos al azar; tres codificadores, dos por texto, sin ver partido, fecha ni respuesta del modelo. <b style="color:#18202E">Por qué sirvió:</b> si el modelo acertara más con un bloque, la comparación estaría sesgada.</p>
+<aside>Tres de nosotros codificamos a mano 160 textos elegidos al azar: 100 intervenciones, mitad oposición y mitad Morena, y 60 desmentidos. Cada texto lo codificaron dos personas, sin ver el partido, la fecha ni lo que dijo el modelo. Primero, nuestro acuerdo: un alfa de Krippendorff de 0.87, arriba de la meta de 0.80 que fijamos. Segundo, donde los dos coincidimos, el modelo dice lo mismo en 96% de los casos. Y tercero, lo más importante para nuestra pregunta: acierta igual con la oposición que con Morena. Si acertara más con un bloque, la comparación entre bloques estaría sesgada. Por eso la validación sirvió: nos dice que la medida es confiable y que no favorece a nadie.</aside>
+</section>
+</div>
+<p class="nota">Tres de nosotros codificamos a mano 160 textos elegidos al azar: 100 intervenciones, mitad oposición y mitad Morena, y 60 desmentidos. Cada texto lo codificaron dos personas, sin ver el partido, la fecha ni lo que dijo el modelo. Primero, nuestro acuerdo: un alfa de Krippendorff de 0.87, arriba de la meta de 0.80 que fijamos. Segundo, donde los dos coincidimos, el modelo dice lo mismo en 96% de los casos. Y tercero, lo más importante para nuestra pregunta: acierta igual con la oposición que con Morena. Si acertara más con un bloque, la comparación entre bloques estaría sesgada. Por eso la validación sirvió: nos dice que la medida es confiable y que no favorece a nadie.</p>
+<div class="marco"><section id="diseno" data-transition="fade" style="background:#ECE8DE;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:44px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">El diseño</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Comparamos el tema tocado contra los temas que no se tocaron</h2>
+<div style="display:flex;gap:48px">
+<table style="font-size:30px;color:#18202E;width:1000px">
+<tr style="background:#18202E"><th style="width:40%;color:#F3F0E8;text-align:left">% del discurso de la oposición</th><th style="width:20%;color:#F3F0E8;text-align:right">Antes</th><th style="width:20%;color:#F3F0E8;text-align:right">Después</th><th style="width:20%;color:#F3F0E8;text-align:right">Cambio</th></tr>
+<tr style="background:#FFFFFF"><td>Salud (la sección lo tocó)</td><td style="text-align:right">4%</td><td style="text-align:right">6%</td><td style="text-align:right">+2</td></tr>
+<tr style="background:#F7F5EF"><td>Temas de control</td><td style="text-align:right">8%</td><td style="text-align:right">8%</td><td style="text-align:right">0</td></tr>
+<tr style="background:#DCE6F7"><td><b>Efecto</b></td><td></td><td></td><td style="text-align:right"><b>+2 puntos</b></td></tr>
+</table>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;line-height:1.4"><b>Tratado:</b> el tema lo tocó esta emisión y no la anterior.</p>
+<p style="font-size:28px;line-height:1.4"><b>Control:</b> no lo tocaron la anterior, esta ni la siguiente.</p>
+<p style="font-size:28px;line-height:1.4;color:#4A5263">Lo mismo para Morena, y luego restamos.</p>
+</div>
+</div>
+<p style="font-size:28px;color:#4A5263;line-height:1.4">Una regresión hace esta cuenta para las 64 emisiones, 7 temas y 5 partidos a la vez, con errores agrupados por emisión y por sesión.</p>
+<aside>El diseño es una diferencia en diferencias para cada bloque. El ejemplo: un miércoles la sección desmiente una nota sobre falta de medicamentos. Vemos el porcentaje del discurso de la oposición dedicado a salud antes y después: pasó de 4 a 6%. A eso le restamos lo que cambiaron los temas que nadie tocó, que aquí no cambiaron. El efecto es de 2 puntos, que sobre una base de 4% es 50% más. Un tema cuenta como tocado si la emisión lo tocó y la anterior no, para que no sea una historia que ya venía. Hacemos lo mismo para Morena y comparamos. La amenaza principal es que una noticia haga que todos hablen del tema; eso afectaría el efecto de cada bloque, pero no su resta si los mueve igual, que es el argumento de Olden y Møen.</aside>
+</section>
+</div>
+<p class="nota">El diseño es una diferencia en diferencias para cada bloque. El ejemplo: un miércoles la sección desmiente una nota sobre falta de medicamentos. Vemos el porcentaje del discurso de la oposición dedicado a salud antes y después: pasó de 4 a 6%. A eso le restamos lo que cambiaron los temas que nadie tocó, que aquí no cambiaron. El efecto es de 2 puntos, que sobre una base de 4% es 50% más. Un tema cuenta como tocado si la emisión lo tocó y la anterior no, para que no sea una historia que ya venía. Hacemos lo mismo para Morena y comparamos. La amenaza principal es que una noticia haga que todos hablen del tema; eso afectaría el efecto de cada bloque, pero no su resta si los mueve igual, que es el argumento de Olden y Møen.</p>
+<div class="marco"><section id="modelo" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Por qué una regresión lineal</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">En la simulación, el Poisson exageraba el efecto; la lineal no</h2>
+<div style="display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px">
+<p style="font-size:26px;color:#4A5263">Efecto estimado cuando metimos a la oposición un efecto conocido (mediana de 100 simulaciones)</p>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="font-size:30px;width:380px">Efecto que pusimos</p>
+<div style="width:567px;height:48px;background:#9AA3B2"></div>
+<p style="font-size:30px;font-weight:600">+63%</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="font-size:30px;width:380px;font-weight:600">Lineal ponderada</p>
+<div style="width:594px;height:48px;background:#2160C4"></div>
+<p style="font-size:30px;font-weight:600">+66%</p>
+</div>
+<div style="display:flex;align-items:center;gap:24px">
+<p style="font-size:30px;width:380px">Poisson</p>
+<div style="width:810px;height:48px;background:#C2541F"></div>
+<p style="font-size:30px;font-weight:600">+90%</p>
+</div>
+</div>
+<p style="font-size:28px;color:#4A5263;line-height:1.4">Los dos detectan el efecto igual de seguido. Pero cada ventana tiene 4 sesiones, casi todas en cero: la lineal quita exacto el nivel normal de cada grupo y el Poisson no. <b style="color:#18202E">Lineal = principal; Poisson = robustez.</b></p>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#6A7180">Simulación con los discursos reales y temas asignados al azar, antes de ver datos reales. Con efecto cero, la lineal rechaza 6% de las veces.</p>
+<aside>El profesor nos preguntó si usar Poisson o una regresión lineal. Lo decidimos con una simulación, antes de ver cualquier dato real: tomamos los discursos reales, les pusimos temas al azar, metimos un efecto de tamaño conocido y vimos qué modelo lo recuperaba. Con un efecto verdadero de 63%, la lineal ponderada estima 66%; el Poisson, 90%. Los dos detectan el efecto igual de seguido, pero el Poisson exagera su tamaño. La razón: cada ventana tiene solo cuatro sesiones y casi todas en cero, y con tan poca información el Poisson no puede quitar bien el nivel normal de cada partido y tema; la lineal lo quita exacto restando promedios. Por eso la lineal es el modelo principal y el Poisson queda como robustez.</aside>
+</section>
+</div>
+<p class="nota">El profesor nos preguntó si usar Poisson o una regresión lineal. Lo decidimos con una simulación, antes de ver cualquier dato real: tomamos los discursos reales, les pusimos temas al azar, metimos un efecto de tamaño conocido y vimos qué modelo lo recuperaba. Con un efecto verdadero de 63%, la lineal ponderada estima 66%; el Poisson, 90%. Los dos detectan el efecto igual de seguido, pero el Poisson exagera su tamaño. La razón: cada ventana tiene solo cuatro sesiones y casi todas en cero, y con tan poca información el Poisson no puede quitar bien el nivel normal de cada partido y tema; la lineal lo quita exacto restando promedios. Por eso la lineal es el modelo principal y el Poisson queda como robustez.</p>
+<div class="marco"><section id="plan" data-transition="fade" style="background:#2160C4;color:#F3F0E8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-size:26px;color:#DCE6F7;letter-spacing:2px;text-transform:uppercase;font-weight:600">Antes de ver resultados</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:88px;font-weight:600;line-height:1.08;color:#FFFDF8">Congelamos el plan antes de ver un solo resultado</h2>
+<div style="display:flex;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #DCE6F7;padding:24px 0px 0px 0px">
+<h3 style="font-size:32px;font-weight:600;color:#FFFDF8">10 de noviembre</h3>
+<p style="font-size:28px;color:#E8EEF9;line-height:1.4">Etiqueta “plan-congelado” en GitHub, con cada decisión escrita</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #DCE6F7;padding:24px 0px 0px 0px">
+<h3 style="font-size:32px;font-weight:600;color:#FFFDF8">Una sola corrida</h3>
+<p style="font-size:28px;color:#E8EEF9;line-height:1.4">La especificación principal, una vez; cada corrida queda registrada</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;border-top:2px solid #DCE6F7;padding:24px 0px 0px 0px">
+<h3 style="font-size:32px;font-weight:600;color:#FFFDF8">Placebo antes</h3>
+<p style="font-size:28px;color:#E8EEF9;line-height:1.4">Con fechas barajadas, la tubería da cero: 6% de rechazos</p>
+</div>
+</div>
+<aside>Antes de estimar, congelamos el plan. Siguiendo a Simmons y coautores, que muestran cómo las decisiones tomadas después de ver datos inflan los falsos positivos, escribimos cada decisión: el modelo, los temas, la ventana y todas las pruebas de robustez. El 10 de noviembre lo subimos a GitHub con una etiqueta. Antes probamos la tubería con fechas barajadas: daba un efecto cercano a cero y rechazaba 6% de las veces, como debe ser. Y la especificación principal la corrimos una sola vez. Así que lo que van a ver es lo que salió, no la mejor de muchas pruebas.</aside>
+</section>
+</div>
+<p class="nota">Antes de estimar, congelamos el plan. Siguiendo a Simmons y coautores, que muestran cómo las decisiones tomadas después de ver datos inflan los falsos positivos, escribimos cada decisión: el modelo, los temas, la ventana y todas las pruebas de robustez. El 10 de noviembre lo subimos a GitHub con una etiqueta. Antes probamos la tubería con fechas barajadas: daba un efecto cercano a cero y rechazaba 6% de las veces, como debe ser. Y la especificación principal la corrimos una sola vez. Así que lo que van a ver es lo que salió, no la mejor de muchas pruebas.</p>
+<div class="marco"><section id="resultados" data-transition="fade" style="background:#FFFFFF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;gap:64px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:36px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Resultados</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:60px;font-weight:600;line-height:1.12">No detectamos que la sección mueva la agenda de nadie</h2>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #2160C4;padding:4px 0px 4px 28px">
+<p style="font-size:36px;font-weight:600">Oposición: −1.4 puntos</p>
+<p style="font-size:26px;color:#4A5263">IC 95%: −7.9 a +5.1 · p = 0.66</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #C2541F;padding:4px 0px 4px 28px">
+<p style="font-size:36px;font-weight:600">Morena: +0.3 puntos</p>
+<p style="font-size:26px;color:#4A5263">IC 95%: −3.9 a +4.5 · p = 0.89</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;border-left:8px solid #18202E;padding:4px 0px 4px 28px">
+<p style="font-size:36px;font-weight:600">Diferencia: −1.7 puntos</p>
+<p style="font-size:26px;color:#4A5263">IC 95%: −6.6 a +3.2 · p = 0.49</p>
+</div>
+</div>
+<img src="figura_efecto_real.png" alt="Gráfica de efectos: arriba, el efecto en puntos porcentuales para la oposición y Morena en la especificación principal y seis variantes, todos con intervalos que cruzan el cero; abajo, el estudio de eventos sesión por sesión, también cerca de cero" style="width:700px;height:797px;object-fit:contain">
+<aside>Este es el resultado. Después de la sección, la oposición dedica al tema tocado 1.4 puntos menos de su discurso, y Morena 0.3 puntos más. Ninguno es distinto de cero: los intervalos cruzan el cero con mucho, y la diferencia entre bloques tampoco es significativa. La gráfica de la derecha muestra la especificación principal arriba, sombreada, y las seis variantes que fijamos antes: sin pesos, con 66 emisiones, con otra definición de control, solo turnos largos, 5 y 10 temas. Todas dicen lo mismo. Abajo, sesión por sesión: no hay subida antes de la emisión, así que no vemos tendencias previas, y tampoco después. La permutación de fechas da p de 0.69 para la oposición. Una nota: 58 de las 64 emisiones aportan datos; en las otras seis las sesiones fueron solo de dictámenes y nadie habló en las secciones libres.</aside>
+</section>
+</div>
+<p class="nota">Este es el resultado. Después de la sección, la oposición dedica al tema tocado 1.4 puntos menos de su discurso, y Morena 0.3 puntos más. Ninguno es distinto de cero: los intervalos cruzan el cero con mucho, y la diferencia entre bloques tampoco es significativa. La gráfica de la derecha muestra la especificación principal arriba, sombreada, y las seis variantes que fijamos antes: sin pesos, con 66 emisiones, con otra definición de control, solo turnos largos, 5 y 10 temas. Todas dicen lo mismo. Abajo, sesión por sesión: no hay subida antes de la emisión, así que no vemos tendencias previas, y tampoco después. La permutación de fechas da p de 0.69 para la oposición. Una nota: 58 de las 64 emisiones aportan datos; en las otras seis las sesiones fueron solo de dictámenes y nadie habló en las secciones libres.</p>
+<div class="marco"><section id="lectura" data-transition="fade" style="background:#F7F5EF;color:#18202E;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:44px">
+<p style="font-size:26px;color:#2160C4;letter-spacing:2px;text-transform:uppercase;font-weight:600">Cómo leerlo</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1">Descartamos un efecto grande, no uno pequeño</h2>
+<div style="display:flex;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border-top:8px solid #2160C4">
+<h3 style="font-size:36px;font-weight:600">Lo que sí podemos decir</h3>
+<ul style="font-size:28px;line-height:1.45;color:#18202E">
+<li>Ningún bloque sube más de ~5 puntos: más de +66% sobre su base, para la oposición</li>
+<li>Siete variantes, el estudio de eventos y la permutación dicen lo mismo</li>
+<li>La medida es confiable y no favorece a ningún bloque</li>
+</ul>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;background:#FFFFFF;padding:40px;border-top:8px solid #9AA3B2">
+<h3 style="font-size:36px;font-weight:600">Lo que no</h3>
+<ul style="font-size:28px;line-height:1.45;color:#18202E">
+<li>Que el efecto sea cero: los intervalos son anchos</li>
+<li>Los datos reales resultaron más ruidosos que la simulación, así que teníamos menos poder</li>
+<li>Si la oposición se queda en sus temas o la sección no mueve a nadie</li>
+</ul>
+</div>
+</div>
+<aside>¿Es un buen resultado? Es un resultado honesto. Lo que sí podemos decir: podemos descartar efectos grandes. Con el intervalo de confianza, la oposición no sube más de unos 5 puntos, que sería más de 66% sobre su nivel normal; para Morena, el tope es de unos 4.5 puntos. Y no depende de una decisión: las siete variantes, el estudio de eventos y la permutación coinciden. Lo que no podemos decir es que el efecto sea cero. Los intervalos son anchos: los datos reales salieron más ruidosos que los de la simulación, así que un efecto moderado, de 25 o 50%, podría estar escondido. Y volviendo a la tabla del principio: estamos en la última fila, ninguno se mueve en un tamaño detectable, pero no podemos distinguir si es porque la oposición se queda en sus temas o porque la sección no mueve a nadie.</aside>
+</section>
+</div>
+<p class="nota">¿Es un buen resultado? Es un resultado honesto. Lo que sí podemos decir: podemos descartar efectos grandes. Con el intervalo de confianza, la oposición no sube más de unos 5 puntos, que sería más de 66% sobre su nivel normal; para Morena, el tope es de unos 4.5 puntos. Y no depende de una decisión: las siete variantes, el estudio de eventos y la permutación coinciden. Lo que no podemos decir es que el efecto sea cero. Los intervalos son anchos: los datos reales salieron más ruidosos que los de la simulación, así que un efecto moderado, de 25 o 50%, podría estar escondido. Y volviendo a la tabla del principio: estamos en la última fila, ninguno se mueve en un tamaño detectable, pero no podemos distinguir si es porque la oposición se queda en sus temas o porque la sección no mueve a nadie.</p>
+<div class="marco"><section id="siguientes" data-transition="fade" style="background:#18202E;color:#F3F0E8;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:48px">
+<p style="font-size:26px;color:#9DB7E8;letter-spacing:2px;text-transform:uppercase;font-weight:600">Siguientes pasos</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.1;color:#F3F0E8">Para el trabajo final, del 7 de diciembre</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;background:#242E40;padding:36px">
+<h3 style="font-size:32px;font-weight:600;color:#F3F0E8">1. Heterogeneidad, marcada como exploratoria</h3>
+<p style="font-size:26px;color:#C9CED8;line-height:1.4">Por partido, por blanco del desmentido, antes y después de sept. 2023, primera o segunda sesión</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#242E40;padding:36px">
+<h3 style="font-size:32px;font-weight:600;color:#F3F0E8">2. Los temas propios de cada partido</h3>
+<p style="font-size:26px;color:#C9CED8;line-height:1.4">¿Responde más la oposición cuando la sección toca uno de sus temas? (Petrocik)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#242E40;padding:36px">
+<h3 style="font-size:32px;font-weight:600;color:#F3F0E8">3. El ángulo, no solo el tema</h3>
+<p style="font-size:26px;color:#C9CED8;line-height:1.4">Un partido puede hablar del tema del rival desde su propio ángulo</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#242E40;padding:36px">
+<h3 style="font-size:32px;font-weight:600;color:#F3F0E8">4. Más poder</h3>
+<p style="font-size:26px;color:#C9CED8;line-height:1.4">Más texto por ventana para detectar efectos moderados</p>
+</div>
+</div>
+<aside>Para el trabajo final tenemos cuatro pasos. Primero, la heterogeneidad que prometimos en la metodología, una dimensión a la vez y marcada como exploratoria. Ojo: el acuerdo sobre a quién desmiente cada ítem fue bajo, así que esa la vamos a leer con cuidado. Segundo, los temas propios de cada partido: Petrocik predice que la oposición respondería más cuando la sección toca uno de sus temas; creemos que es lo que el profesor quiso decir con “cada partido se cree sus propios temas”, y le vamos a preguntar. Tercero, medir el ángulo y no solo el tema, porque un partido puede hablar del tema del rival para rebatirlo. Y cuarto, buscar más texto por ventana para tener poder contra efectos moderados. Gracias.</aside>
+</section>
+</div>
+<p class="nota">Para el trabajo final tenemos cuatro pasos. Primero, la heterogeneidad que prometimos en la metodología, una dimensión a la vez y marcada como exploratoria. Ojo: el acuerdo sobre a quién desmiente cada ítem fue bajo, así que esa la vamos a leer con cuidado. Segundo, los temas propios de cada partido: Petrocik predice que la oposición respondería más cuando la sección toca uno de sus temas; creemos que es lo que el profesor quiso decir con “cada partido se cree sus propios temas”, y le vamos a preguntar. Tercero, medir el ángulo y no solo el tema, porque un partido puede hablar del tema del rival para rebatirlo. Y cuarto, buscar más texto por ventana para tener poder contra efectos moderados. Gracias.</p>
+<script>
+function ajustar(){
+  var w=Math.min(window.innerWidth-32,1920), s=w/1920;
+  document.querySelectorAll('.marco').forEach(function(m){
+    m.style.width=w+'px'; m.style.height=(1080*s)+'px';
+    m.querySelector('section').style.transform='scale('+s+')';
+  });
+}
+if(!window.matchMedia('print').matches){ajustar();window.addEventListener('resize',ajustar);}
+</script>
+</body></html>
