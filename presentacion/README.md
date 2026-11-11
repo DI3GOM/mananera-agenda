@@ -2,7 +2,7 @@
 
 Tres versiones con los mismos resultados y distinto diseño. Cada versión corrigió la crítica que se le hizo a la anterior; la recomendada es la **C**.
 
-| Versión | Diapositivas | Notas del orador | Estilo | Diapositivas |
+| Versión | Archivo | Notas del orador | Estilo | Núm. |
 |---|---|---|---|---|
 | **C** (recomendada) | [PDF](version_C.pdf) | [notas](notas_version_C.md) | Tono impreso, crema y terracota; método paso a paso, estudio de eventos general y por tema | 14 |
 | B | [PDF](version_B.pdf) | [notas](notas_version_B.md) | Oscuro; intervalos horizontales, lineal contra Poisson con puntos, barras de poder | 13 |
