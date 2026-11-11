@@ -4,7 +4,7 @@ Tres versiones con los mismos resultados y distinto diseño. Cada versión corri
 
 | Versión | Estilo | Diapositivas |
 |---|---|---|
-| [C](version_C.pdf) (recomendada) | Tono impreso, crema y terracota; intervalos verticales, ceros y tabla de respaldo | 12 |
+| [C](version_C.pdf) (recomendada) | Tono impreso, crema y terracota; intervalos verticales, ceros y tabla de respaldo | 13 |
 | [B](version_B.pdf) | Oscuro; intervalos horizontales, lineal contra Poisson con puntos, barras de poder | 13 |
 | [A](version_A.pdf) | Académico claro; usa la figura `figura_efecto_real.png` | 13 |
 

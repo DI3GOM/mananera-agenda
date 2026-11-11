@@ -213,28 +213,81 @@ body.notas .nota{display:block}
 </section>
 </div>
 <p class="nota">Para saber si el modelo acierta, tomamos 160 textos al azar: 100 intervenciones, mitad de la oposición y mitad de Morena, y 60 desmentidos. Cada texto lo codificaron dos de nosotros, sin ver partido, fecha ni lo que dijo el modelo. Primera pregunta: ¿coincidimos entre nosotros? En 135 de 160 pusimos el mismo tema. El alfa de Krippendorff descuenta el acuerdo que daría el azar; nos dio 0.87, arriba de la meta de 0.80 que fijamos antes. Si hubiera quedado abajo de 0.67, habríamos tenido que juntar temas. Segunda pregunta: en esos 135 textos, ¿el modelo pone el mismo tema que nosotros? En la oposición acierta 40 de 42, en Morena 39 de 39 y en los desmentidos 51 de 54. Por eso sirvió: si el modelo se equivocara más con un bloque, la comparación entre bloques mediría su error y no la conducta de los diputados.</p>
-<div class="marco"><section id="diseno" data-transition="fade" style="background:#EAE2D3;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;gap:44px">
-<p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">El diseño y los ceros</p>
-<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:52px;font-weight:700;line-height:1.2">El tema tocado contra los que nadie tocó, en el mismo partido</h2>
-<div style="display:flex;gap:40px">
-<div style="flex:3;display:flex;flex-direction:column;gap:16px;background:#F4EFE6;padding:36px">
-<p style="font-size:26px;color:#4B5A55;font-weight:700;text-transform:uppercase;letter-spacing:1px">Ejemplo de la metodología</p>
-<p style="font-size:30px;line-height:1.5">Salud, tocado: de 4% a 6% del discurso → <b>+2</b></p>
-<p style="font-size:30px;line-height:1.5">Temas de control: sin cambio → <b>0</b></p>
-<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:40px;font-weight:700;color:#1F6F8B">Efecto = +2 puntos (+50%)</p>
-<p style="font-size:26px;color:#4B5A55;line-height:1.4">Igual para Morena, y restamos. Tocado: esta emisión sí y la anterior no.</p>
+<div class="marco"><section id="papeles" data-transition="fade" style="background:#F4EFE6;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">El diseño, paso 1</p>
+<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:50px;font-weight:700;line-height:1.2">Cada semana, la sección le da un papel a cada tema</h2>
+<p style="font-size:26px;line-height:1.4;color:#4B5A55"><b style="color:#1F3D36">7 temas</b>, con una regla fijada antes: la sección los tocó en 8 emisiones o más y son 1% o más de lo que hablan los diputados. Gobierno, Justicia y seguridad, Transporte, Energía, Salud, Economía y Derechos civiles.</p>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;gap:16px;padding:12px 20px;border-bottom:3px solid #1F3D36;font-size:24px;font-weight:700;color:#4B5A55">
+<p style="width:300px">Ejemplo de una semana</p>
+<p style="width:300px;text-align:center">¿La sección lo tocó<br>el miércoles anterior?</p>
+<p style="width:260px;text-align:center">¿Este<br>miércoles?</p>
+<p style="width:260px;text-align:center">¿El miércoles<br>siguiente?</p>
+<p style="flex:1">Papel</p>
 </div>
-<div style="flex:2;display:flex;flex-direction:column;gap:16px;background:#F4EFE6;padding:36px">
-<p style="font-size:26px;color:#4B5A55;font-weight:700;text-transform:uppercase;letter-spacing:1px">Dos tipos de ceros</p>
-<p style="font-size:28px;line-height:1.4"><b>El partido no habló</b> en la sesión: no hay porcentaje, la fila sale (51% de las filas).</p>
-<p style="font-size:28px;line-height:1.4"><b>Habló de otra cosa:</b> el tema vale 0 y se queda (69% de las que quedan).</p>
+<div style="display:flex;gap:16px;padding:14px 20px;border-bottom:2px solid #D5CBB8;font-size:28px;align-items:center;background:#F3DED2">
+<p style="width:300px;font-weight:700">Salud</p>
+<p style="width:300px;text-align:center">No</p>
+<p style="width:260px;text-align:center;font-weight:700">Sí</p>
+<p style="width:260px;text-align:center;color:#8A938F">no importa</p>
+<p style="flex:1;font-weight:700;color:#B5532C">Tratado: es novedad</p>
+</div>
+<div style="display:flex;gap:16px;padding:14px 20px;border-bottom:2px solid #D5CBB8;font-size:28px;align-items:center">
+<p style="width:300px;font-weight:700">Transporte</p>
+<p style="width:300px;text-align:center">No</p>
+<p style="width:260px;text-align:center">No</p>
+<p style="width:260px;text-align:center">No</p>
+<p style="flex:1;font-weight:700;color:#1F3D36">Control</p>
+</div>
+<div style="display:flex;gap:16px;padding:14px 20px;border-bottom:2px solid #D5CBB8;font-size:28px;align-items:center">
+<p style="width:300px;font-weight:700">Energía</p>
+<p style="width:300px;text-align:center">Sí</p>
+<p style="width:260px;text-align:center">Sí</p>
+<p style="width:260px;text-align:center;color:#8A938F">no importa</p>
+<p style="flex:1;color:#5E6B66">Fuera: ya venía de antes</p>
+</div>
+<div style="display:flex;gap:16px;padding:14px 20px;border-bottom:2px solid #D5CBB8;font-size:28px;align-items:center">
+<p style="width:300px;font-weight:700">Gobierno</p>
+<p style="width:300px;text-align:center">No</p>
+<p style="width:260px;text-align:center">No</p>
+<p style="width:260px;text-align:center">Sí</p>
+<p style="flex:1;color:#5E6B66">Fuera: viene después</p>
 </div>
 </div>
-<p style="font-size:28px;line-height:1.4"><b>7 temas,</b> con una regla fijada antes (la sección los tocó en 8 emisiones o más; 1% o más de las palabras): Gobierno, Justicia y seguridad, Transporte, Energía, Salud, Economía y Derechos civiles.</p>
-<aside>El ejemplo de nuestra metodología: la sección toca salud; la oposición pasa de dedicarle 4% de su discurso a 6%, y los temas que nadie tocó no cambian. El efecto es de 2 puntos, 50% más. Hacemos lo mismo con Morena y restamos. Y los ceros, que nos pidió revisar: si un partido no habló en la sesión, no hay porcentaje y la fila sale, que es la mitad de las filas, porque en 74 de 154 sesiones solo hubo dictámenes o comparecencias. Analizamos 7 temas, elegidos con una regla fijada antes de ver resultados. Si habló de otra cosa, el tema vale cero y se queda: 69% de las filas que quedan son ceros.</aside>
+<p style="font-size:24px;line-height:1.4;color:#5E6B66">“Tocar” es siempre la sección de la mañanera. Los temas no elegidos y no tocados van juntos a un <b>resto</b>, que también sirve de control. Lo que dicen los diputados es lo que medimos.</p>
+<aside>Primero, qué comparamos. Analizamos 7 temas, elegidos con una regla fijada antes de ver resultados: los que la sección tocó en 8 emisiones o más y que ocupan al menos 1% de lo que hablan los diputados. Cada semana, la sección le da un papel a cada tema. Si este miércoles tocó Salud y el anterior no, Salud es tratado: es una novedad que podría mover a los diputados. Si un tema no lo tocaron ni el miércoles anterior, ni este, ni el siguiente, es control: nos dice cuánto se mueven los temas por su cuenta. Los que ya venían de antes o vienen después quedan fuera, para no mezclar efectos. Tocar siempre se refiere a la sección; lo que dicen los diputados es lo que medimos.</aside>
 </section>
 </div>
-<p class="nota">El ejemplo de nuestra metodología: la sección toca salud; la oposición pasa de dedicarle 4% de su discurso a 6%, y los temas que nadie tocó no cambian. El efecto es de 2 puntos, 50% más. Hacemos lo mismo con Morena y restamos. Y los ceros, que nos pidió revisar: si un partido no habló en la sesión, no hay porcentaje y la fila sale, que es la mitad de las filas, porque en 74 de 154 sesiones solo hubo dictámenes o comparecencias. Analizamos 7 temas, elegidos con una regla fijada antes de ver resultados. Si habló de otra cosa, el tema vale cero y se queda: 69% de las filas que quedan son ceros.</p>
+<p class="nota">Primero, qué comparamos. Analizamos 7 temas, elegidos con una regla fijada antes de ver resultados: los que la sección tocó en 8 emisiones o más y que ocupan al menos 1% de lo que hablan los diputados. Cada semana, la sección le da un papel a cada tema. Si este miércoles tocó Salud y el anterior no, Salud es tratado: es una novedad que podría mover a los diputados. Si un tema no lo tocaron ni el miércoles anterior, ni este, ni el siguiente, es control: nos dice cuánto se mueven los temas por su cuenta. Los que ya venían de antes o vienen después quedan fuera, para no mezclar efectos. Tocar siempre se refiere a la sección; lo que dicen los diputados es lo que medimos.</p>
+<div class="marco"><section id="diseno" data-transition="fade" style="background:#EAE2D3;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:112px 128px;display:flex;flex-direction:column;gap:32px">
+<p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">El diseño, paso 2</p>
+<h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:50px;font-weight:700;line-height:1.2">La cuenta: cuánto cambió el tema tocado, menos cuánto cambiaron los controles</h2>
+<div style="display:flex;gap:40px">
+<div style="flex:3;display:flex;flex-direction:column;gap:6px;background:#F4EFE6;padding:28px 36px">
+<p style="font-size:24px;color:#4B5A55;font-weight:700;text-transform:uppercase;letter-spacing:1px">% del discurso de la oposición (ejemplo)</p>
+<div style="display:flex;gap:16px;padding:10px 0px;border-bottom:3px solid #1F3D36;font-size:24px;font-weight:700;color:#4B5A55">
+<p style="width:330px"></p><p style="width:190px;text-align:center">Antes<br>(−2, −1)</p><p style="width:190px;text-align:center">Después<br>(+1, +2)</p><p style="flex:1;text-align:center">Cambio</p>
+</div>
+<div style="display:flex;gap:16px;padding:12px 0px;border-bottom:2px solid #D5CBB8;font-size:30px">
+<p style="width:330px;font-weight:700;color:#B5532C">Salud (tratado)</p><p style="width:190px;text-align:center">4%</p><p style="width:190px;text-align:center">6%</p><p style="flex:1;text-align:center;font-weight:700">+2</p>
+</div>
+<div style="display:flex;gap:16px;padding:12px 0px;border-bottom:2px solid #D5CBB8;font-size:30px">
+<p style="width:330px;font-weight:700">Controles (promedio)</p><p style="width:190px;text-align:center">8%</p><p style="width:190px;text-align:center">8%</p><p style="flex:1;text-align:center;font-weight:700">0</p>
+</div>
+<p style="font-family:'Libre Baskerville', Georgia, serif;font-size:38px;font-weight:700;color:#1F6F8B;padding:14px 0px 0px 0px">Efecto = +2 − 0 = +2 puntos</p>
+<p style="font-size:24px;color:#4B5A55;line-height:1.4">La regresión promedia esta cuenta en todas las semanas, para la oposición y para Morena, y luego resta los dos bloques.</p>
+</div>
+<div style="flex:2;display:flex;flex-direction:column;gap:14px;background:#F4EFE6;padding:28px 36px">
+<p style="font-size:24px;color:#4B5A55;font-weight:700;text-transform:uppercase;letter-spacing:1px">Por qué restar los controles</p>
+<p style="font-size:26px;line-height:1.4">Las sesiones cambian mucho: en 74 de 154 nadie habló en secciones libres. Sin restar, una sesión con más debate parecería efecto de la mañanera.</p>
+<p style="font-size:26px;line-height:1.4"><b>El costo:</b> el tiempo es limitado; si Salud sube, otro tema baja. Eso infla un poco el efecto (cuenta aproximada: 15–27%), nunca lo esconde.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#4B5A55"><b style="color:#1F3D36">Dos tipos de ceros:</b> si el partido no habló en la sesión, no hay porcentaje y la fila sale (51% de las filas); si habló de otra cosa, el tema vale 0 y se queda (69% de las que quedan).</p>
+<aside>Segundo, la cuenta. Para la oposición, en una semana: Salud, el tema tocado, pasa de 4% de su discurso en las dos sesiones de antes a 6% en las dos de después, +2. Los controles, en promedio, no cambian. El efecto es +2 menos 0: dos puntos. La regresión hace esta cuenta en todas las semanas a la vez, por separado para la oposición y para Morena, y luego resta los dos bloques. ¿Por qué restar los controles? Porque las sesiones cambian mucho: en 74 de 154 nadie habló en secciones libres. Sin restar, una sesión con más debate parecería efecto de la mañanera. Tiene un costo: el tiempo de una sesión es limitado, así que si Salud sube, otro tema baja, y eso infla un poco el efecto, según una cuenta aproximada, entre 15 y 27%; nunca lo esconde. Y los ceros que nos pidieron revisar: si un partido no habló, la fila sale; si habló de otra cosa, el tema vale cero y se queda.</aside>
+</section>
+</div>
+<p class="nota">Segundo, la cuenta. Para la oposición, en una semana: Salud, el tema tocado, pasa de 4% de su discurso en las dos sesiones de antes a 6% en las dos de después, +2. Los controles, en promedio, no cambian. El efecto es +2 menos 0: dos puntos. La regresión hace esta cuenta en todas las semanas a la vez, por separado para la oposición y para Morena, y luego resta los dos bloques. ¿Por qué restar los controles? Porque las sesiones cambian mucho: en 74 de 154 nadie habló en secciones libres. Sin restar, una sesión con más debate parecería efecto de la mañanera. Tiene un costo: el tiempo de una sesión es limitado, así que si Salud sube, otro tema baja, y eso infla un poco el efecto, según una cuenta aproximada, entre 15 y 27%; nunca lo esconde. Y los ceros que nos pidieron revisar: si un partido no habló, la fila sale; si habló de otra cosa, el tema vale cero y se queda.</p>
 <div class="marco"><section id="modelo" data-transition="fade" style="background:#F4EFE6;color:#1F3D36;font-family:'Nunito Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
 <p style="font-size:26px;color:#B5532C;letter-spacing:2px;text-transform:uppercase;font-weight:700">¿Lineal o Poisson?</p>
 <h2 style="font-family:'Libre Baskerville', Georgia, serif;font-size:52px;font-weight:700;line-height:1.2">El Poisson exageraba el efecto 40–52%; la lineal acertaba</h2>
