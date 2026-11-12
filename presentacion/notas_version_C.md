@@ -34,26 +34,22 @@ Primero, qué comparamos. Analizamos 7 temas, elegidos con una regla fijada ante
 
 Segundo, la cuenta. Para la oposición, en una semana: Salud, el tema tocado, pasa de 4% de su discurso en las dos sesiones de antes a 6% en las dos de después, +2. Los controles, en promedio, no cambian. El efecto es +2 menos 0: dos puntos. La regresión hace esta cuenta en todas las semanas a la vez, por separado para la oposición y para Morena, y luego resta los dos bloques. ¿Por qué restar los controles? Porque las sesiones cambian mucho: en 74 de 154 nadie habló en secciones libres. Sin restar, una sesión con más debate parecería efecto de la mañanera. Tiene un costo: el tiempo de una sesión es limitado, así que si Salud sube, otro tema baja, y eso infla un poco el efecto, según una cuenta aproximada, entre 15 y 27%; nunca lo esconde. Y los ceros que nos pidieron revisar: si un partido no habló, la fila sale; si habló de otra cosa, el tema vale cero y se queda.
 
-## 9. El Poisson exageraba el efecto 40–52%; la lineal acertaba
-
-El profesor preguntó: ¿Poisson o lineal? Primero, cómo usamos la lineal. Lo que explica es el porcentaje del discurso de cada partido sobre cada tema en cada sesión, con cero si habló de otras cosas. Hace la cuenta del paso anterior en todas las semanas a la vez: quita el nivel normal de cada tema para cada partido en esa semana, y lo que cambia en cada sesión para cada partido. Cada sesión pesa según cuántas palabras dijo el partido, para que un discurso de 30 palabras no cuente como uno de 3,000. Y los errores están agrupados por emisión y por sesión, porque lo que pasa en una misma semana no es independiente. El resultado se lee en puntos del discurso. ¿Por qué no Poisson? Lo decidimos con una simulación antes de ver datos reales: discursos reales, temas al azar y un efecto de tamaño conocido. La lineal se pasa 4% o 1%, casi exacta; el Poisson, 40% y 52%. Los dos detectan el efecto casi igual de seguido, pero el Poisson exagera su tamaño, porque con cuatro sesiones por semana y muchos ceros no logra quitar el nivel normal. Por eso la lineal es la principal y el Poisson va de robustez.
-
-## 10. Después de la mañanera, ningún bloque habla más del tema tocado
+## 9. Después de la mañanera, ningún bloque habla más del tema tocado
 
 El resultado, sesión por sesión. Cada punto dice cuánto cambió el porcentaje del discurso dedicado al tema que tocó la mañanera, comparado con la última sesión antes, que vale cero, y con los temas de control. En azul la oposición, en naranja Morena. Antes de la mañanera, los puntos no se separan del cero: no había una tendencia previa. Después, tampoco: los dos bloques se quedan cerca de cero, y todas las barras cruzan el cero. Promediando las dos sesiones de después, la oposición dedica 1.4 puntos menos al tema tocado y Morena 0.3 más; ninguno es distinto de cero, y la diferencia entre bloques tampoco. Lo que sí descartamos es una subida de más de 5 puntos. Congelamos el plan antes, lo corrimos una vez, y las variantes, el Poisson y la permutación dicen lo mismo.
 
-## 11. Tema por tema casi todo es ruido; Salud es la excepción que vale revisar
+## 10. Tema por tema casi todo es ruido; Salud es la excepción que vale revisar
 
 Ahora, el mismo análisis tema por tema. Esto es exploratorio: lo decidimos después de ver los resultados, lo corrimos una vez y mostramos los siete temas. En casi todos, los puntos brincan y las barras son enormes: con 8 a 17 emisiones por tema no hay información para decir nada. La excepción es Salud: en las dos sesiones de después, la oposición y Morena dedican más de su discurso a salud. Pero hay tres razones para no creérnoslo todavía: son solo 9 emisiones, con tan pocas los errores estándar son poco confiables, y con tantos coeficientes alguno sale distinto de cero por azar. Lo tomamos como una pista para revisar en el trabajo final, no como un hallazgo.
 
-## 12. Buena medición, poco poder: ni siquiera descartamos el +50% que buscábamos
+## 11. Buena medición, poco poder: ni siquiera descartamos el +50% que buscábamos
 
 ¿Son buenos los resultados? La medición y el diseño funcionaron: la medida es confiable, la tubería da cero con fechas barajadas y las siete variantes coinciden. Pero la prueba tuvo poco poder. El intervalo de la oposición llega hasta 66% sobre su base, así que ni siquiera podemos descartar el efecto de 50% para el que diseñamos la prueba; un efecto de 25% ya en la simulación se detectaba una de cada cuatro veces, y los datos reales salieron más ruidosos. Lo que sí descartamos es un efecto grande. Y queda abierto por qué: es compatible con que la oposición prefiera sus temas y con que la sección no mueva a nadie.
 
-## 13. Hacia el trabajo final del 7 de diciembre
+## 12. Hacia el trabajo final del 7 de diciembre
 
 Para el trabajo final: la heterogeneidad que prometimos, una dimensión a la vez y marcada como exploratoria; medir el ángulo y no solo el tema, porque un partido puede hablar del tema del rival para rebatirlo; y, como idea, más texto por ventana para tener poder contra efectos moderados. Cerramos con una pregunta abierta, que creemos es lo que el profesor quiso decir con “cada partido se cree sus propios temas”: ¿responde la oposición cuando la sección toca uno de sus temas? Gracias.
 
-## 14. Ninguna variante cambia la conclusión
+## 13. Ninguna variante cambia la conclusión
 
 Respaldo para preguntas. Todas estas variantes, la permutación y el estudio de eventos estaban en el plan congelado. Efectos en puntos porcentuales salvo el Poisson. Ninguna es significativa; el p más bajo es 0.22, en la diferencia sin pesos. La sesión −2 no muestra evidencia de tendencias previas.

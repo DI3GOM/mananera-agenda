@@ -4,7 +4,7 @@ Tres versiones con los mismos resultados y distinto diseño. Cada versión corri
 
 | Versión | Archivo | Notas del orador | Estilo | Núm. |
 |---|---|---|---|---|
-| **C** (recomendada) | [PDF](version_C.pdf) | [notas](notas_version_C.md) | Tono impreso, crema y terracota; método paso a paso, estudio de eventos general y por tema | 14 |
+| **C** (recomendada) | [PDF](version_C.pdf) | [notas](notas_version_C.md) | Tono impreso, crema y terracota; método paso a paso, estudio de eventos general y por tema | 13 |
 | B | [PDF](version_B.pdf) | [notas](notas_version_B.md) | Oscuro; intervalos horizontales, lineal contra Poisson con puntos, barras de poder | 13 |
 | A | [PDF](version_A.pdf) | [notas](notas_version_A.md) | Académico claro; usa `analisis/figura_efecto_real.png` | 13 |
 
